@@ -22,22 +22,9 @@
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 
-<div class="masthead">
-  <div class="container">
-    <span>Charleston, SC</span>
-    <span class="masthead-center">Est. 2026 &middot; Family-Style Catering</span>
-    <span>@rubys.table</span>
-  </div>
-</div>
-
 <header class="site-header">
   <div class="container">
-    <a href="index.html" class="logo" aria-label="Ruby's Table home">
-      <span class="stamp" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#D02A2E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.2 C5.5 15.3 3 11.6 3 8.2 C3 5.4 5.2 3.3 7.9 3.3 C9.7 3.3 11.3 4.3 12 6 C12.7 4.3 14.3 3.3 16.1 3.3 C18.8 3.3 21 5.4 21 8.2 C21 11.6 18.5 15.3 12 20.2 Z"/></svg>
-      </span>
-      Ruby's Table
-    </a>
+    <a href="index.html" class="logo" aria-label="Ruby's Table home">Ruby's Table</a>
     <nav class="main-nav" id="main-nav" aria-label="Primary">
       <ul>
         <li><a href="index.html">Home</a></li>
@@ -48,7 +35,7 @@
       </ul>
     </nav>
     <div class="header-cta">
-      <a href="contact.html" class="btn btn-primary btn-outline-desktop">Request Catering</a>
+      <a href="contact.html" class="btn btn-outline btn-outline-desktop">Request Catering</a>
       <button class="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle menu">
         <span></span><span></span><span></span>
       </button>
@@ -58,19 +45,18 @@
 
 <main id="main">
 
-  <!-- SPLIT-SCREEN: portrait image + catering-request intro + form -->
-  <section class="split-screen split-wide-right section-flush">
-    <div class="split-media has-label reveal">
-      <span class="plate-label" style="color:#FBF6EC;">No. 04 &mdash; Gather</span>
-      <img src="images/contact-hero.jpg.svg" alt="A warm table setting, ready to welcome guests" width="1000" height="1250" loading="lazy">
-      <span class="postcard-note tilt-left" style="position:absolute; bottom:var(--space-md); left:var(--space-md); z-index:2;">let's set the table</span>
+  <section class="page-hero">
+    <div class="container">
+      <p class="breadcrumb reveal"><a href="index.html">Home</a> / Contact</p>
+      <p class="eyebrow reveal">Catering Request</p>
+      <h1 class="reveal reveal-delay-1">Let's set the table.</h1>
+      <p class="lede reveal reveal-delay-2">Private dinners, holidays, corporate lunches, family meals, or something all your own &mdash; tell us about your gathering below, and we'll follow up to talk through the details. Prefer to text? Reach us at <a href="sms:+18287724255" style="text-decoration:underline;">828.772.4255</a>.</p>
     </div>
-    <div class="split-copy on-butter reveal reveal-delay-1">
-      <p class="eyebrow">Catering Request</p>
-      <h1 style="font-size:clamp(2.3rem,4vw,3.2rem);">Let's set the table</h1>
-      <p class="lede mt-md">Private dinners, holidays, corporate lunches, family meals, or something all your own &mdash; tell us about your gathering below, and we'll follow up to talk through the details. Prefer to text? Reach us at <a href="sms:+18287724255" style="text-decoration:underline;">828.772.4255</a>.</p>
+  </section>
 
-      <form id="inquiry-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="mt-lg">
+  <section class="section-tight">
+    <div class="container" style="max-width: 800px;">
+      <form id="inquiry-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="reveal">
         <div class="form-grid two-col">
 
           <div class="field">
@@ -152,17 +138,14 @@
   </section>
 
   <!-- CONTACT INFORMATION + SOCIAL LINKS -->
-  <section class="section-tight bg-sage" style="position:relative; overflow:hidden;">
-    <span class="blob-accent tint-coastal" style="width:360px; height:360px; top:-110px; right:4%; opacity:0.85;" aria-hidden="true"></span>
+  <section class="section-tight">
     <div class="container">
-      <div class="editorial-list">
-        <div class="editorial-row reveal">
-          <span class="row-num">01</span>
+      <div class="info-list">
+        <div class="info-row reveal">
           <h3>Contact Information</h3>
           <p>Text <a href="sms:+18287724255" style="text-decoration:underline;">828.772.4255</a> to order directly, or use the form above for catering inquiries. We ask for at least 48 hours' notice so everything's made fresh.</p>
         </div>
-        <div class="editorial-row reveal reveal-delay-1">
-          <span class="row-num">02</span>
+        <div class="info-row reveal reveal-delay-1">
           <h3>Social Media</h3>
           <p>Seasonal menus, specials, and behind-the-scenes moments on
             <a href="https://www.instagram.com/rubys.table" style="text-decoration:underline;" target="_blank" rel="noopener">Instagram</a> &amp;
@@ -180,7 +163,7 @@
   <div class="container">
     <div class="footer-grid">
       <div>
-        <div class="footer-logo">Ruby's Table<span class="heart-mark on-dark" aria-hidden="true">&#9829;</span></div>
+        <div class="footer-logo">Ruby's Table<span class="heart-mark" aria-hidden="true">&#9829;</span></div>
         <p class="footer-tagline">Family-style meals, made to share — delivered to your door in Charleston, SC.</p>
         <div class="footer-social">
           <a href="https://www.instagram.com/rubys.table" aria-label="Ruby's Table on Instagram" target="_blank" rel="noopener">

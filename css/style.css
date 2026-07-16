@@ -1,18 +1,19 @@
 /* ===========================================================
    RUBY'S TABLE — Global Stylesheet
-   A soft, elevated-feminine, editorial design system for a
-   family-style catering brand: cream & butter & olive, graceful
-   serif type, generous whitespace, understated handwritten
-   accents. Custom CSS, no framework.
+   A bright, airy, editorial design system for a boutique
+   Charleston catering brand: cream & soft white & butter & olive
+   & warm taupe & muted terracotta, a hint of coastal blue.
+   Photography-led. One idea per section. No filler.
+   Custom CSS, no framework.
    =========================================================== */
 
 /* -----------------------------------------------------------
    1. Fonts
-   Inter  — clean, real, modern sans-serif; carries everything,
-            headlines included. No serif anywhere on the site.
-   Caveat — handwritten accent, used very sparingly
+   Cormorant Garamond — elegant, airy serif; headings & logo only
+   Inter               — clean sans; nav, body, buttons, labels
+   Caveat              — handwritten signature, used once
 ----------------------------------------------------------- */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Caveat:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600;700&family=Caveat:wght@500&display=swap');
 
 /* -----------------------------------------------------------
    2. Design tokens
@@ -20,29 +21,23 @@
 :root {
   --cream:          #FBF6EC;
   --cream-deep:      #F4EAD3;
+  --soft-white:      #FFFDF8;
   --linen:          #F1E7D2;
   --butter:          #F1D48A;
   --butter-soft:     #F7E7B8;
+  --taupe:          #A8967D;
+  --taupe-deep:      #7A6B54;
   --olive:          #8B9166;
   --olive-deep:      #5F6640;
-  --sage:            #B7BC98;
-  --sage-soft:       #E4E6D6;
   --terracotta:      #C97552;
   --terracotta-deep: #A6532F;
-  --peach:          #F1D2C4;
-  --blush:          #F1D2C4; /* alias, kept for backward compatibility */
-  --coastal:          #93ABAE;
   --coastal-soft:      #DCE6E4;
   --coastal-deep:      #4E6367;
   --espresso:        #4A3A2C;
   --espresso-soft:   #6B5642;
-  --white-soft:      #FFFDF8;
-
-  /* Ruby's signature red — used sparingly and intentionally as the brand's
-     one saturated mark: the logo heart and primary buttons only. It does not
-     replace the terracotta/olive/coastal accent system used everywhere else. */
-  --ruby-red:      #D02A2E;
-  --ruby-red-deep: #A81F22;
+  --white-soft:      #FFFDF8; /* alias of --soft-white, kept for compatibility */
+  --ruby-red:        #D02A2E; /* one small, personal touch — used sparingly */
+  --ruby-red-bright: #F28D90; /* same touch, brightened for dark backgrounds */
 
   --color-bg:            var(--cream);
   --color-bg-alt:        var(--cream-deep);
@@ -52,8 +47,9 @@
   --color-accent-deep:   var(--olive-deep);
   --color-accent-warm:   var(--terracotta-deep);
   --color-accent-coastal: var(--coastal-deep);
-  --color-line:          rgba(74, 58, 44, 0.14);
+  --color-line:          rgba(74, 58, 44, 0.12);
 
+  --font-serif: 'Cormorant Garamond', 'Iowan Old Style', Georgia, serif;
   --font-sans:  'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-script: 'Caveat', cursive;
 
@@ -66,15 +62,16 @@
   --space-xl:  6.5rem;
   --space-2xl: 9.5rem;
 
-  --radius-sm: 6px;
-  --radius-md: 16px;
-  --radius-lg: 32px;
+  --radius-sm: 3px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
 
-  --shadow-soft: 0 14px 34px -16px rgba(74, 58, 44, 0.16);
-  --shadow-lift: 0 22px 50px -18px rgba(74, 58, 44, 0.22);
+  /* Kept deliberately light — no heavy drop shadows anywhere on the site */
+  --shadow-soft: 0 8px 24px -14px rgba(74, 58, 44, 0.10);
+  --shadow-lift: 0 14px 32px -16px rgba(74, 58, 44, 0.12);
 
   --container-max: 1160px;
-  --transition: 460ms cubic-bezier(0.22, 1, 0.36, 1);
+  --transition: 420ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 /* -----------------------------------------------------------
@@ -86,7 +83,6 @@ html { scroll-behavior: smooth; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  *, *::before, *::as { animation-duration: 0.01ms !important; }
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
@@ -107,18 +103,6 @@ body {
   overflow-x: hidden;
 }
 
-/* Soft paper-grain texture — keeps the cream palette from reading flat */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 2000;
-  opacity: 0.028;
-  mix-blend-mode: multiply;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-}
-
 img, svg { display: block; max-width: 100%; height: auto; }
 a { color: inherit; text-decoration: none; }
 ul, ol { list-style: none; }
@@ -126,26 +110,27 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 input, textarea, select { font: inherit; color: inherit; }
 
 /* -----------------------------------------------------------
-   4. Typography
+   4. Typography — serif carries every heading, sans carries
+   everything else. No oversized numerals, no gimmicks.
 ----------------------------------------------------------- */
 h1, h2, h3, h4 {
-  font-family: var(--font-sans);
-  font-weight: 400;
-  line-height: 1.14;
+  font-family: var(--font-serif);
+  font-weight: 500;
+  line-height: 1.18;
   letter-spacing: -0.005em;
   color: var(--color-text);
 }
 
-h1 { font-size: clamp(2.7rem, 5.8vw, 5.4rem); font-weight: 300; letter-spacing: -0.01em; }
-h2 { font-size: clamp(2rem, 3.6vw, 3.1rem); font-weight: 400; }
-h3 { font-size: clamp(1.35rem, 2vw, 1.65rem); font-weight: 500; }
-h4 { font-size: 1.05rem; letter-spacing: 0.02em; text-transform: uppercase; font-family: var(--font-sans); font-weight: 500; }
+h1 { font-size: clamp(2.4rem, 5.2vw, 4.2rem); font-weight: 500; letter-spacing: -0.01em; }
+h2 { font-size: clamp(1.9rem, 3.2vw, 2.7rem); font-weight: 500; }
+h3 { font-size: clamp(1.3rem, 1.8vw, 1.55rem); font-weight: 600; }
+h4 { font-size: 0.95rem; letter-spacing: 0.06em; text-transform: uppercase; font-family: var(--font-sans); font-weight: 600; }
 
 p { max-width: 60ch; }
 p + p { margin-top: 1.05em; }
 
 .lede {
-  font-size: clamp(1.08rem, 1.5vw, 1.25rem);
+  font-size: clamp(1.05rem, 1.4vw, 1.2rem);
   color: var(--color-text-soft);
   max-width: 44ch;
   font-weight: 300;
@@ -156,16 +141,16 @@ p + p { margin-top: 1.05em; }
   align-items: center;
   gap: 0.6em;
   font-family: var(--font-sans);
-  font-size: 0.75rem;
+  font-size: 0.74rem;
   font-weight: 500;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--color-accent-deep);
   margin-bottom: var(--space-sm);
 }
 .eyebrow::before {
   content: '';
-  width: 24px;
+  width: 20px;
   height: 1px;
   background: var(--color-accent-deep);
   display: inline-block;
@@ -174,38 +159,30 @@ p + p { margin-top: 1.05em; }
 .eyebrow.warm::before { background: var(--color-accent-warm); }
 .eyebrow.coastal { color: var(--color-accent-coastal); }
 .eyebrow.coastal::before { background: var(--color-accent-coastal); }
-.eyebrow.peach { color: var(--color-accent-warm); }
-.eyebrow.peach::before { background: var(--color-accent-warm); }
-/* Used on tinted panels (peach, coastal) where warm accent tones drop below AA contrast */
-.eyebrow.deep { color: var(--espresso-soft); }
-.eyebrow.deep::before { background: var(--espresso-soft); }
-.eyebrow.ruby { color: var(--ruby-red); }
-.eyebrow.ruby::before { background: var(--ruby-red); }
 
 .script-accent {
   font-family: var(--font-script);
-  font-weight: 600;
-  font-size: 1.5em;
-  color: var(--color-accent-warm);
-  display: inline-block;
-  transform: rotate(-2deg);
-}
-
-.section-heading { margin-bottom: var(--space-lg); max-width: 62ch; }
-.section-heading.center { margin-left: auto; margin-right: auto; text-align: center; }
-
-/* Drop cap — a quiet editorial, cookbook-page opening */
-.drop-cap::first-letter {
-  font-family: var(--font-sans);
-  font-style: normal;
-  font-size: 4.2em;
-  font-weight: 700;
-  float: left;
-  line-height: 0.8;
-  padding-right: 0.1em;
-  margin-top: 0.05em;
+  font-weight: 500;
+  font-size: 1.4em;
   color: var(--ruby-red);
+  display: inline-block;
 }
+
+/* -----------------------------------------------------------
+   Small ruby-red touch — a personal signature, used in exactly
+   two places: the footer wordmark and the script signature
+   above. Not a palette shift, just a heartbeat of brand color.
+----------------------------------------------------------- */
+.heart-mark {
+  color: var(--ruby-red-bright);
+  font-size: 0.65em;
+  vertical-align: super;
+  margin-left: 0.2em;
+  display: inline-block;
+}
+
+.section-heading { margin-bottom: var(--space-lg); max-width: 60ch; }
+.section-heading.center { margin-left: auto; margin-right: auto; text-align: center; }
 
 /* -----------------------------------------------------------
    5. Layout helpers
@@ -225,38 +202,8 @@ section { padding-block: var(--space-2xl); }
 .section-flush { padding: 0; }
 
 .bg-alt   { background: var(--color-bg-alt); }
-.bg-linen { background: var(--linen); }
-.bg-sage    { background: var(--sage-soft); }
-.bg-coastal { background: var(--coastal-soft); }
-.bg-peach   { background: var(--peach); }
-.bg-butter  { background: var(--butter-soft); }
 .bg-espresso { background: var(--espresso); color: var(--cream); }
 .bg-espresso h1, .bg-espresso h2, .bg-espresso h3 { color: var(--cream); }
-
-/* On any tinted panel, --color-accent-warm is redefined one shade deeper —
-   the everyday terracotta reads fine on plain cream but drops under AA
-   contrast on linen/sage/coastal/peach/butter. Everything already built on
-   this token (prices, pull-quotes, links, .eyebrow.warm) stays legible
-   automatically, no per-element overrides needed. */
-.bg-linen, .bg-sage, .bg-coastal, .bg-peach, .bg-butter,
-.menu-category.tint, .split-copy.on-butter, .split-copy.on-sage {
-  --color-accent-warm: #874025;
-}
-
-/* -----------------------------------------------------------
-   5b. Menu category tint — wraps a whole category in a soft
-   color panel so each one reads as its own moment while
-   scrolling, instead of three identical white blocks.
------------------------------------------------------------ */
-.menu-category.tint {
-  border-radius: var(--radius-lg);
-  padding: var(--space-lg) var(--space-md);
-  border-top: none;
-  margin-block: var(--space-md);
-}
-.menu-category.tint.tint-coastal { background: var(--coastal-soft); }
-.menu-category.tint.tint-peach   { background: var(--peach); }
-.menu-category.tint .menu-item { border-bottom-color: rgba(74,58,44,0.18); }
 
 .grid { display: grid; gap: var(--space-md); }
 @media (min-width: 780px) {
@@ -267,10 +214,9 @@ section { padding-block: var(--space-2xl); }
 .cluster { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-sm); }
 
 .divider {
-  width: 54px;
+  width: 44px;
   height: 1.5px;
   background: var(--color-accent);
-  border-radius: 2px;
   margin-block: var(--space-sm);
 }
 .center .divider { margin-inline: auto; }
@@ -278,133 +224,87 @@ section { padding-block: var(--space-2xl); }
 .two-col-text { display: grid; gap: var(--space-lg); }
 @media (min-width: 900px) { .two-col-text { grid-template-columns: 1fr 1fr; } }
 
-.tilt-left  { transform: rotate(-2.2deg); }
-.tilt-right { transform: rotate(1.8deg); }
-
 /* -----------------------------------------------------------
-   6. Buttons
+   6. Buttons — one filled, one outline. Quiet, not shouty.
 ----------------------------------------------------------- */
 .btn {
   display: inline-flex;
   align-items: center;
   gap: 0.6em;
-  padding: 0.9em 1.85em;
-  border-radius: 100px;
+  padding: 0.85em 1.75em;
+  border-radius: 2px;
   font-family: var(--font-sans);
-  font-weight: 700;
+  font-weight: 500;
   font-size: 0.86rem;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  transition: transform var(--transition), box-shadow var(--transition), background var(--transition), color var(--transition), border-color var(--transition);
+  transition: background var(--transition), color var(--transition), border-color var(--transition), opacity var(--transition);
   white-space: nowrap;
 }
-.btn:hover { transform: translateY(-2px); }
+.btn:hover { opacity: 0.82; }
 
-.btn-primary { background: var(--ruby-red); color: var(--white-soft); box-shadow: var(--shadow-soft); }
-.btn-primary:hover { background: var(--ruby-red-deep); box-shadow: var(--shadow-lift); }
+.btn-primary { background: var(--terracotta-deep); color: var(--soft-white); }
+.btn-primary:hover { background: var(--espresso); opacity: 1; }
 
-.btn-outline { background: transparent; color: var(--color-text); border: 1.3px solid var(--color-text); }
-.btn-outline:hover { background: var(--color-text); color: var(--color-bg); }
-
-.btn-light { background: var(--white-soft); color: var(--espresso); }
-.btn-light:hover { background: var(--butter); }
+.btn-outline { background: transparent; color: var(--color-text); border: 1px solid var(--color-text); }
+.btn-outline:hover { background: var(--color-text); color: var(--color-bg); opacity: 1; }
 
 a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible, .btn:focus-visible {
-  outline: 2.5px solid var(--color-accent-warm);
+  outline: 2px solid var(--color-accent-warm);
   outline-offset: 3px;
-  border-radius: 4px;
 }
 
 .skip-link {
   position: absolute; left: -999px; top: auto;
   background: var(--espresso); color: var(--cream);
-  padding: 1em 1.5em; z-index: 999; border-radius: 0 0 8px 0;
+  padding: 1em 1.5em; z-index: 999;
 }
 .skip-link:focus { left: 0; top: 0; }
 
 /* -----------------------------------------------------------
-   7. Masthead + site header / nav — light, quiet, stationery-like
+   7. Site header / nav — quiet, minimal, lets the page carry
+   the weight. No utility bar above it, no heavy effects.
 ----------------------------------------------------------- */
-.masthead {
-  background: var(--linen);
-  border-bottom: 1px solid var(--color-line);
-}
-.masthead .container {
-  display: flex; align-items: center; justify-content: space-between;
-  padding-block: 0.6em;
-  font-family: var(--font-sans);
-  font-size: 0.7rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--espresso-soft);
-  gap: var(--space-sm);
-}
-.masthead .masthead-center {
-  display: none;
-  font-family: var(--font-sans);
-  font-style: normal;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  text-transform: none;
-  color: var(--color-accent-warm);
-  font-size: 0.78rem;
-}
-@media (min-width: 700px) { .masthead .masthead-center { display: block; } }
-
 .site-header {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(251, 246, 236, 0.94);
-  backdrop-filter: blur(10px);
+  background: rgba(251, 246, 236, 0.92);
+  backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--color-line);
 }
 .site-header .container {
   display: flex; align-items: center; justify-content: space-between;
   padding-block: var(--space-2xs);
-  min-height: 78px;
+  min-height: 74px;
 }
 
 .logo {
-  display: flex; align-items: center; gap: 0.65em;
-  font-family: var(--font-sans); font-style: normal; font-weight: 700;
-  font-size: 1.2rem; color: var(--espresso); letter-spacing: 0.05em;
-  text-transform: uppercase;
+  font-family: var(--font-serif); font-style: normal; font-weight: 500;
+  font-size: 1.5rem; color: var(--espresso); letter-spacing: 0.01em;
 }
-.logo .stamp {
-  width: 32px; height: 32px;
-  border: 1.3px dashed var(--ruby-red); border-radius: 4px;
-  display: grid; place-items: center; flex-shrink: 0;
-}
-.logo .stamp svg { width: 17px; height: 17px; }
 
 .main-nav ul { display: flex; align-items: center; gap: var(--space-md); }
 .main-nav a {
-  font-size: 0.86rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;
-  position: relative; padding-block: 0.3em;
+  font-size: 0.82rem; font-weight: 500; letter-spacing: 0.03em;
+  position: relative; padding-block: 0.3em; color: var(--color-text-soft);
 }
-.main-nav a::after {
-  content: ''; position: absolute; left: 0; right: 0; bottom: -2px; height: 1.3px;
-  background: var(--color-accent-warm); transform: scaleX(0); transform-origin: left;
-  transition: transform var(--transition);
-}
-.main-nav a:hover::after, .main-nav a[aria-current="page"]::after { transform: scaleX(1); }
-.main-nav a[aria-current="page"] { color: var(--color-accent-warm); }
+.main-nav a:hover, .main-nav a[aria-current="page"] { color: var(--color-text); }
 
 .header-cta { display: flex; align-items: center; gap: var(--space-sm); }
-.header-cta .btn { padding: 0.7em 1.45em; font-size: 0.85rem; }
+.header-cta .btn { padding: 0.65em 1.35em; font-size: 0.78rem; }
 
 .nav-toggle { display: none; flex-direction: column; gap: 5px; padding: 0.5em; }
-.nav-toggle span { width: 24px; height: 2px; background: var(--espresso); transition: transform var(--transition), opacity var(--transition); }
-.nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle span { width: 22px; height: 1.5px; background: var(--espresso); transition: transform var(--transition), opacity var(--transition); }
+.nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
 .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
-.nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
 @media (max-width: 900px) {
   .header-cta .btn-outline-desktop { display: none; }
   .nav-toggle { display: inline-flex; }
   .main-nav {
-    position: fixed; inset: 78px 0 0 0; background: var(--cream);
+    position: fixed; inset: 74px 0 0 0; background: var(--cream);
     padding: var(--space-lg) var(--space-md);
     transform: translateY(-8px); opacity: 0; pointer-events: none;
     transition: transform var(--transition), opacity var(--transition);
@@ -412,394 +312,159 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   }
   .main-nav.is-open { transform: translateY(0); opacity: 1; pointer-events: auto; }
   .main-nav ul { flex-direction: column; align-items: flex-start; gap: var(--space-md); }
-  .main-nav a { font-size: 1.4rem; }
+  .main-nav a { font-size: 1.3rem; }
 }
 
 /* -----------------------------------------------------------
-   8. Editorial hero (full-bleed, asymmetric, softened overlay)
+   8. Editorial hero — the photograph is the point. A light,
+   bottom-only veil for legibility; everything above it stays
+   untouched so the photo actually reads as a photo.
 ----------------------------------------------------------- */
 .hero-editorial {
-  position: relative; padding: 0; min-height: 86vh;
+  position: relative; padding: 0; min-height: 82vh;
   display: flex; align-items: flex-end; overflow: hidden;
 }
 .hero-editorial .hero-editorial-media { position: absolute; inset: 0; }
-.hero-editorial .hero-editorial-media img {
-  width: 100%; height: 100%; object-fit: cover;
-  /* Source photo is a wide 2.35:1 panorama of the bridge; on tall/narrow
-     screens this keeps the towers in frame instead of centering on empty
-     sky or water at the far edges of the shot. */
-  object-position: 58% 42%;
-}
+.hero-editorial .hero-editorial-media img { width: 100%; height: 100%; object-fit: cover; }
 .hero-editorial .hero-editorial-media::after {
   content: ''; position: absolute; inset: 0;
-  /* Deep, warm scrim — kept dark enough everywhere (not just faded at the
-     bottom) that cream/butter text stays legible regardless of how light
-     the underlying photo is. Verified: >=4.5:1 for both cream and butter
-     at every stop, not just the darkest point. */
-  background: linear-gradient(0deg, rgba(26,18,12,0.86) 0%, rgba(26,18,12,0.7) 100%);
+  /* Verified against the actual photo's sampled colors: even the darkest
+     stop here clears 4.5:1 for the text sitting on it, with margin — this
+     is a fraction of the darkness a typical hero scrim uses. */
+  background: linear-gradient(0deg, rgba(20,15,12,0.4) 0%, rgba(20,15,12,0.14) 42%, rgba(20,15,12,0) 72%);
 }
-.hero-editorial-content { position: relative; z-index: 2; color: var(--cream); padding: var(--space-xl) var(--space-sm) var(--space-lg); max-width: 900px; }
-@media (min-width: 640px) { .hero-editorial-content { padding-inline: var(--space-md); padding-bottom: var(--space-xl); } }
-.hero-editorial-content h1 { color: var(--cream); font-size: clamp(2.8rem, 7vw, 5.6rem); }
-.hero-editorial-content .eyebrow { color: var(--butter); }
-.hero-editorial-content .eyebrow::before { background: var(--butter); }
-.hero-editorial-content .lede { color: rgba(251,246,236,0.9); }
-
-.postcard-note {
-  background: var(--white-soft); border-radius: 4px; padding: 0.85em 1.25em;
-  box-shadow: var(--shadow-lift); transform: rotate(-3deg);
-  font-family: var(--font-script); font-size: 1.25rem; color: var(--ruby-red);
-  position: relative; display: inline-block;
-}
-.postcard-note::before {
-  content: ''; position: absolute; top: 6px; right: 8px; width: 18px; height: 18px;
-  border: 1.1px dashed var(--ruby-red); border-radius: 3px; opacity: 0.5;
-}
-.hero-editorial .postcard-note { position: absolute; z-index: 3; top: var(--space-lg); right: var(--space-sm); }
-@media (min-width: 640px) { .hero-editorial .postcard-note { right: var(--space-md); } }
+.hero-editorial-content { position: relative; z-index: 2; color: var(--soft-white); padding: var(--space-lg) var(--space-sm); max-width: 640px; }
+@media (min-width: 640px) { .hero-editorial-content { padding: var(--space-xl) var(--space-md); } }
+.hero-editorial-content h1 { color: var(--soft-white); }
+.hero-editorial-content .lede { color: rgba(255,253,248,0.92); }
 
 /* -----------------------------------------------------------
-   9. Split-screen (unequal columns, full-bleed both sides)
+   9. Split-screen — one consistent asymmetric two-up, used the
+   same way everywhere it appears. Full-bleed photo one side,
+   generous copy the other.
 ----------------------------------------------------------- */
-.split-screen { display: grid; min-height: 58vh; }
+.split-screen { display: grid; min-height: 56vh; }
 @media (min-width: 900px) {
   .split-screen { grid-template-columns: 1fr 1fr; }
-  .split-screen.split-wide-left { grid-template-columns: 1.2fr 1fr; }
-  .split-screen.split-wide-right { grid-template-columns: 1fr 1.2fr; }
+  .split-screen.split-wide-left { grid-template-columns: 1.15fr 1fr; }
+  .split-screen.split-wide-right { grid-template-columns: 1fr 1.15fr; }
 }
-.split-screen .split-media { position: relative; min-height: 40vh; }
+.split-screen .split-media { position: relative; min-height: 38vh; }
 .split-screen .split-media img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
-/* Scrim for split-media that carries a pale plate-label directly over the
-   photo (no other backing). Same fix as the hero: guarantees the label
-   stays readable regardless of how light the underlying image is. */
-.split-screen .split-media.has-label::after {
-  content: ''; position: absolute; inset: 0 0 65% 0; z-index: 1; pointer-events: none;
-  background: linear-gradient(180deg, rgba(26,18,12,0.68) 0%, rgba(26,18,12,0) 100%);
-}
-.split-screen .split-media.has-label .plate-label { z-index: 2; }
 .split-screen .split-copy { display: flex; flex-direction: column; justify-content: center; padding: var(--space-xl) var(--space-sm); }
 @media (min-width: 640px) { .split-screen .split-copy { padding: var(--space-2xl) var(--space-lg); } }
-.split-screen .split-copy.on-cream   { background: var(--cream); }
-.split-screen .split-copy.on-butter  { background: var(--butter-soft); }
-.split-screen .split-copy.on-sage    { background: var(--sage-soft); }
-.split-screen .split-copy.on-linen   { background: var(--linen); }
-.split-screen .split-copy.on-coastal { background: var(--coastal-soft); }
+.split-screen .split-copy.on-cream { background: var(--cream); }
 
 /* -----------------------------------------------------------
-   10. Oversized editorial pull-quote
+   10. Pull-quote — one quiet emphasis device
 ----------------------------------------------------------- */
-.magazine-quote { padding-block: var(--space-2xl); text-align: center; position: relative; }
-.magazine-quote .quote-mark { font-family: var(--font-sans); font-weight: 700; font-size: 5.5rem; line-height: 1; color: var(--butter); display: block; margin-bottom: -0.3em; }
-.magazine-quote blockquote {
-  font-family: var(--font-sans); font-style: normal; font-weight: 400;
-  font-size: clamp(1.8rem, 4vw, 3.1rem); line-height: 1.32; max-width: 20ch;
-  margin-inline: auto; color: var(--espresso);
-}
-.magazine-quote cite {
-  display: block; margin-top: var(--space-md); font-style: normal; font-family: var(--font-sans);
-  font-size: 0.82rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-accent-warm);
-}
-
 .pull-quote {
-  font-family: var(--font-sans); font-style: normal; font-weight: 500;
-  font-size: clamp(1.3rem, 2.2vw, 1.85rem); line-height: 1.44; color: var(--color-accent-warm);
+  font-family: var(--font-serif); font-style: italic; font-weight: 500;
+  font-size: clamp(1.4rem, 2.2vw, 1.9rem); line-height: 1.4; color: var(--color-text);
   border-left: 2px solid var(--color-accent); padding-left: var(--space-md); margin-block: var(--space-lg);
 }
 
 /* -----------------------------------------------------------
-   11. Editorial numbered list — a quiet cookbook-index device
+   11. Quiet content list — replaces cards/tables for "good to
+   know" style information. Clean stacked rows, generous space,
+   no numerals, no icons, no tilt.
 ----------------------------------------------------------- */
-.editorial-list { border-top: 1px solid var(--color-line); }
-.editorial-row {
-  display: grid; grid-template-columns: auto 1fr; gap: var(--space-md);
-  padding-block: var(--space-md); border-bottom: 1px solid var(--color-line); align-items: baseline;
+.info-list { border-top: 1px solid var(--color-line); }
+.info-row {
+  padding-block: var(--space-lg); border-bottom: 1px solid var(--color-line);
 }
-@media (min-width: 720px) { .editorial-row { grid-template-columns: 100px 1fr 1.1fr; gap: var(--space-lg); } }
-.editorial-row .row-num { font-family: var(--font-sans); font-weight: 700; font-size: 1.9rem; color: var(--color-accent-warm); line-height: 1; opacity: 0.85; }
-.editorial-row h3 { margin-bottom: 0.2em; }
-.editorial-row p { color: var(--color-text-soft); max-width: 52ch; }
+@media (min-width: 720px) {
+  .info-row { display: grid; grid-template-columns: 1fr 1.6fr; gap: var(--space-lg); }
+}
+.info-row h3 { margin-bottom: 0.3em; }
+.info-row p { color: var(--color-text-soft); max-width: 52ch; }
 
 /* -----------------------------------------------------------
-   12. Placeholder photography frames
+   12. Photography frames — plain, minimal radius, no arches,
+   no organic blobs. The photo does the work.
 ----------------------------------------------------------- */
-.photo-frame { position: relative; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-soft); aspect-ratio: 4/5; background: var(--linen); }
+.photo-frame { position: relative; overflow: hidden; aspect-ratio: 4/5; background: var(--linen); border-radius: var(--radius-sm); }
 .photo-frame img { width: 100%; height: 100%; object-fit: cover; }
 .photo-frame.square { aspect-ratio: 1/1; }
 .photo-frame.wide { aspect-ratio: 16/10; }
 .photo-frame.tall { aspect-ratio: 3/4; }
-/* Organic arch top — a soft architectural nod, used sparingly */
-.photo-frame.arch { border-radius: 46% 46% var(--radius-sm) var(--radius-sm) / 30% 30% var(--radius-sm) var(--radius-sm); }
 
 /* -----------------------------------------------------------
-   13. Layered double-image composition
+   13. Asymmetric two-up — one photo, one block of copy, used
+   consistently across pages instead of a different invention
+   each time.
 ----------------------------------------------------------- */
-.layered-frames { position: relative; padding: var(--space-md) var(--space-lg) var(--space-lg) 0; }
-.layered-frames .frame-back { width: 76%; }
-.layered-frames .frame-front { position: absolute; right: 0; bottom: 0; width: 52%; box-shadow: var(--shadow-lift); border: 6px solid var(--cream); border-radius: var(--radius-md); overflow: hidden; }
-@media (max-width: 640px) { .layered-frames { padding-right: 0; } .layered-frames .frame-front { width: 58%; } }
+.offset-duo { display: grid; gap: var(--space-lg); align-items: center; }
+@media (min-width: 820px) { .offset-duo { grid-template-columns: 5fr 7fr; } }
 
 /* -----------------------------------------------------------
-   14. Asymmetric offset duo
------------------------------------------------------------ */
-.offset-duo { display: grid; gap: var(--space-md); position: relative; }
-@media (min-width: 820px) {
-  .offset-duo { grid-template-columns: 5fr 7fr; align-items: end; }
-  .offset-duo .offset-item:first-child { margin-bottom: -7%; }
-}
-
-/* -----------------------------------------------------------
-   14b. Plate label — a small rotated, catalog-style caption
-   that runs along a photo's edge. An editorial, vintage-recipe-
-   book detail; use once or twice per page, never as decoration
-   for its own sake.
------------------------------------------------------------ */
-.plate-label {
-  position: absolute;
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
-  font-family: var(--font-sans);
-  font-size: 0.7rem;
-  font-weight: 500;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--espresso-soft);
-  top: var(--space-md);
-  left: var(--space-sm);
-  display: none;
-}
-.hero-editorial .plate-label { color: var(--cream); left: var(--space-md); z-index: 2; }
-@media (min-width: 780px) { .plate-label { display: block; } }
-
-/* -----------------------------------------------------------
-   14c. Breathing photo — a full-bleed image with a single
-   small caption. No headline, no body copy: photography does
-   the talking. Used to give the page a moment of quiet between
-   busier sections.
+   14. Breathing photo — full-bleed image, one small caption.
+   Photography carries the moment; nothing competes with it.
 ----------------------------------------------------------- */
 .breathing-photo { position: relative; }
-.breathing-photo .photo-frame { border-radius: 0; aspect-ratio: 21/11; box-shadow: none; }
+.breathing-photo .photo-frame { border-radius: 0; aspect-ratio: 21/11; }
 .breathing-photo-caption {
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: var(--space-sm);
-  max-width: var(--container-max);
-  margin-inline: auto;
+  position: relative; max-width: var(--container-max); margin-inline: auto;
   padding: var(--space-sm) var(--space-sm) 0;
 }
 @media (min-width: 640px) { .breathing-photo-caption { padding-inline: var(--space-md); } }
-.breathing-photo-caption p {
-  font-family: var(--font-script);
-  font-size: 1.3rem;
-  color: var(--color-accent-warm);
-  margin: 0;
-}
 .breathing-photo-caption span {
-  font-family: var(--font-sans);
-  font-size: 0.72rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--color-text-soft);
-  white-space: nowrap;
+  font-family: var(--font-sans); font-size: 0.72rem; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--color-text-soft);
 }
 
 /* -----------------------------------------------------------
-   14d. Recipe card — a floating index-card panel used in place
-   of a repeated split-screen; evokes a page torn from a recipe
-   box rather than a marketing panel.
------------------------------------------------------------ */
-.recipe-card-layout { position: relative; }
-.recipe-card {
-  position: relative;
-  background: var(--white-soft);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-lift);
-  padding: var(--space-lg) var(--space-md);
-  border: 1px solid var(--color-line);
-}
-.recipe-card::before {
-  content: '';
-  position: absolute;
-  top: 22px; left: 22px; right: 22px; bottom: 22px;
-  border: 1px solid var(--color-line);
-  border-radius: calc(var(--radius-md) - 6px);
-  pointer-events: none;
-}
-@media (min-width: 900px) {
-  .recipe-card-layout { display: grid; grid-template-columns: 7fr 5fr; align-items: center; }
-  .recipe-card { margin-left: -8%; z-index: 2; }
-}
-
-/* -----------------------------------------------------------
-   14e. Organic blob accent — a soft, hand-drawn-feeling shape
-   used sparingly as a background accent behind photography or
-   typography, never as a repeated grid motif. Each instance uses
-   one tint, sized and placed by hand per section.
------------------------------------------------------------ */
-.blob-accent {
-  position: absolute;
-  border-radius: 62% 38% 55% 45% / 45% 55% 45% 55%;
-  z-index: -1;
-  pointer-events: none;
-}
-.blob-accent.tint-peach   { background: var(--peach); }
-.blob-accent.tint-sage    { background: var(--sage-soft); }
-.blob-accent.tint-coastal { background: var(--coastal-soft); }
-.blob-accent.tint-butter  { background: var(--butter-soft); }
-
-/* -----------------------------------------------------------
-   14f. Organic photo frame — a softer, asymmetric silhouette
-   used once or twice per page in place of the standard rounded
-   rectangle, so photography doesn't feel boxed by a grid.
------------------------------------------------------------ */
-.photo-frame.organic { border-radius: 58% 42% 39% 61% / 55% 40% 60% 45%; }
-
-/* -----------------------------------------------------------
-   14g. Split-media inset — a small second photograph tucked over
-   a full-bleed image, like a snapshot set on top of a larger
-   print. A quiet way to layer photography without repeating the
-   layered-frames composition on every page.
------------------------------------------------------------ */
-.split-media-inset {
-  position: absolute;
-  z-index: 3;
-  width: 40%;
-  max-width: 230px;
-  aspect-ratio: 4/5;
-  border: 7px solid var(--white-soft);
-  border-radius: var(--radius-sm);
-  box-shadow: var(--shadow-lift);
-  overflow: hidden;
-}
-.split-media-inset img { width: 100%; height: 100%; object-fit: cover; }
-.split-media-inset.inset-bottom-left  { bottom: var(--space-md); left: var(--space-md); }
-.split-media-inset.inset-bottom-right { bottom: var(--space-md); right: var(--space-md); }
-.split-media-inset.inset-top-right    { top: var(--space-md); right: var(--space-md); }
-@media (max-width: 640px) {
-  .split-media-inset { width: 34%; max-width: 150px; border-width: 5px; }
-}
-
-/* -----------------------------------------------------------
-   15. Cards (used sparingly)
------------------------------------------------------------ */
-.card { background: var(--white-soft); border-radius: var(--radius-md); padding: var(--space-md); box-shadow: var(--shadow-soft); }
-
-/* -----------------------------------------------------------
-   15a. Recipe notes — replaces numbered/tabular "policy list"
-   sections with something that reads like a handful of cards
-   pulled from Ruby's own recipe box: paper-card texture, one
-   small line-drawn icon each, gentle handmade asymmetry instead
-   of a rigid equal-width grid.
------------------------------------------------------------ */
-.note-intro { max-width: 48ch; margin-bottom: var(--space-xl); }
-.note-intro .script-accent { font-size: 1.6rem; display: block; margin-bottom: var(--space-2xs); transform: rotate(-1.5deg); }
-.note-intro h2 { margin-bottom: 0.25em; font-style: normal; font-weight: 600; }
-
-.note-cards { display: grid; gap: var(--space-lg) var(--space-md); }
-@media (min-width: 720px) { .note-cards { grid-template-columns: repeat(2, 1fr); } }
-
-.note-card {
-  position: relative;
-  background: var(--white-soft);
-  border: 1px solid var(--color-line);
-  border-radius: var(--radius-md);
-  padding: var(--space-lg) var(--space-md);
-  box-shadow: var(--shadow-soft);
-}
-.note-card::before {
-  content: '';
-  position: absolute; top: 13px; left: 13px; right: 13px; bottom: 13px;
-  border: 1px solid var(--color-line);
-  border-radius: calc(var(--radius-md) - 5px);
-  pointer-events: none;
-  opacity: 0.55;
-}
-.note-card-icon { width: 30px; height: 30px; margin-bottom: var(--space-sm); }
-.note-card .eyebrow { margin-bottom: var(--space-2xs); }
-.note-card h3 { margin-bottom: 0.35em; }
-.note-card p:not(.eyebrow) { color: var(--color-text-soft); font-size: 0.97rem; }
-
-/* Gentle, hand-set asymmetry — never a perfectly even grid */
-@media (min-width: 720px) {
-  .note-cards .note-card:nth-child(1) { transform: rotate(-0.4deg); }
-  .note-cards .note-card:nth-child(2) { transform: rotate(0.6deg); margin-top: var(--space-lg); }
-  .note-cards .note-card:nth-child(3) { transform: rotate(0.5deg); }
-  .note-cards .note-card:nth-child(4) { transform: rotate(-0.6deg); margin-top: var(--space-md); }
-}
-
-/* -----------------------------------------------------------
-   15b. Typographic hero — an oversized-numeral, text-led page
-   opener paired with one small tilted photograph. Used once
-   (Menu) so no two interior pages open the same way.
------------------------------------------------------------ */
-.type-hero { position: relative; padding-top: var(--space-xl); }
-.type-hero-grid { display: grid; gap: var(--space-lg); align-items: end; }
-@media (min-width: 860px) { .type-hero-grid { grid-template-columns: 1fr auto; } }
-.type-hero .chapter-num {
-  font-family: var(--font-sans); font-style: normal; font-weight: 700;
-  font-size: clamp(3.4rem, 8vw, 5.6rem); line-height: 1; color: var(--butter);
-  display: block; margin-bottom: -0.15em;
-}
-.type-hero-photo {
-  width: 168px; border: 7px solid var(--white-soft); border-radius: var(--radius-sm);
-  box-shadow: var(--shadow-lift); overflow: hidden; aspect-ratio: 4/5; justify-self: end;
-}
-@media (max-width: 859px) { .type-hero-photo { width: 130px; } }
-.type-hero-photo img { width: 100%; height: 100%; object-fit: cover; }
-
-/* -----------------------------------------------------------
-   16. Menu page
+   15. Menu page
 ----------------------------------------------------------- */
 .menu-jump { display: flex; flex-wrap: wrap; gap: var(--space-2xs); margin-bottom: var(--space-lg); }
 .menu-jump a {
-  padding: 0.55em 1.25em; border-radius: 100px; border: 1px solid var(--color-line);
-  font-size: 0.85rem; letter-spacing: 0.03em; text-transform: uppercase; font-weight: 500;
+  padding: 0.5em 1.1em; border-radius: 100px; border: 1px solid var(--color-line);
+  font-size: 0.82rem; letter-spacing: 0.02em; font-weight: 500;
   transition: background var(--transition), color var(--transition), border-color var(--transition);
 }
 .menu-jump a:hover { background: var(--espresso); color: var(--cream); border-color: var(--espresso); }
 
-.menu-category { padding-block: var(--space-lg); border-top: 1px solid var(--color-line); scroll-margin-top: 140px; }
+.menu-category { padding-block: var(--space-lg); border-top: 1px solid var(--color-line); scroll-margin-top: 130px; }
 .menu-category:first-of-type { border-top: none; padding-top: 0; }
 .menu-category-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: var(--space-2xs); margin-bottom: var(--space-md); }
-.menu-category-head .price-tiers { font-family: var(--font-sans); font-size: 0.93rem; color: var(--color-text-soft); }
+.menu-category-head .price-tiers { font-family: var(--font-sans); font-size: 0.92rem; color: var(--color-text-soft); }
 
 .menu-items { display: grid; gap: var(--space-md); }
 @media (min-width: 720px) { .menu-items { grid-template-columns: repeat(2, 1fr); } }
 
-.menu-item { padding-bottom: var(--space-sm); border-bottom: 1px dashed var(--color-line); }
+.menu-item { padding-bottom: var(--space-sm); border-bottom: 1px solid var(--color-line); }
 .menu-item-head { display: flex; justify-content: space-between; align-items: baseline; gap: var(--space-sm); }
-.menu-item-head h3 { font-size: 1.12rem; }
-.menu-item-price { font-family: var(--font-sans); font-weight: 600; color: var(--color-accent-warm); white-space: nowrap; font-size: 1.02rem; }
+.menu-item-head h3 { font-size: 1.15rem; }
+.menu-item-price { font-family: var(--font-sans); font-weight: 500; color: var(--color-accent-warm); white-space: nowrap; font-size: 0.98rem; }
 .menu-item p { color: var(--color-text-soft); font-size: 0.96rem; margin-top: 0.3em; }
-.menu-item .serves { display: block; font-size: 0.8rem; color: var(--olive-deep); margin-top: 0.3em; letter-spacing: 0.02em; }
+.menu-item .serves { display: block; font-size: 0.8rem; color: var(--olive-deep); margin-top: 0.3em; }
 
-.menu-note { margin-top: var(--space-xl); padding: var(--space-md); background: var(--cream-deep); border-radius: var(--radius-md); border-left: 2.5px solid var(--color-accent); }
+.menu-note { margin-top: var(--space-xl); padding: var(--space-md); background: var(--cream-deep); border-left: 2px solid var(--color-accent); }
 
 /* -----------------------------------------------------------
-   17. "Tonight's table" list (home menu teaser)
+   16. "Tonight's table" list (home menu teaser)
 ----------------------------------------------------------- */
 .today-list { border-top: 1px solid var(--color-line); }
 .today-list li { display: flex; justify-content: space-between; gap: var(--space-md); padding-block: var(--space-sm); border-bottom: 1px solid var(--color-line); }
-.today-list h3 { font-size: 1.25rem; margin-bottom: 0.15em; }
+.today-list h3 { font-size: 1.2rem; margin-bottom: 0.15em; }
 .today-list p { color: var(--color-text-soft); font-size: 0.92rem; }
-.today-list .item-price { font-family: var(--font-sans); font-weight: 600; color: var(--color-accent-warm); white-space: nowrap; }
+.today-list .item-price { font-family: var(--font-sans); font-weight: 500; color: var(--color-accent-warm); white-space: nowrap; }
 
 /* -----------------------------------------------------------
-   18. Forms
+   17. Forms
 ----------------------------------------------------------- */
 .form-grid { display: grid; gap: var(--space-md); }
 @media (min-width: 720px) { .form-grid.two-col { grid-template-columns: 1fr 1fr; } }
 .field { display: flex; flex-direction: column; gap: 0.5em; }
 .field.full { grid-column: 1/-1; }
-.field label { font-size: 0.86rem; font-weight: 500; letter-spacing: 0.02em; }
+.field label { font-size: 0.85rem; font-weight: 500; }
 .field .hint { font-size: 0.79rem; color: var(--color-text-soft); }
 .field input, .field select, .field textarea {
-  padding: 0.85em 1em; border: 1.3px solid var(--color-line); border-radius: var(--radius-sm);
-  background: var(--white-soft); transition: border-color var(--transition), box-shadow var(--transition);
+  padding: 0.8em 1em; border: 1px solid var(--color-line); border-radius: var(--radius-sm);
+  background: var(--soft-white); transition: border-color var(--transition), box-shadow var(--transition);
 }
 .field input:focus, .field select:focus, .field textarea:focus {
-  outline: none; border-color: var(--color-accent-warm); box-shadow: 0 0 0 4px rgba(166, 83, 47, 0.12);
+  outline: none; border-color: var(--color-accent-warm); box-shadow: 0 0 0 3px rgba(166, 83, 47, 0.10);
 }
 .field textarea { resize: vertical; min-height: 130px; }
 .form-status { margin-top: var(--space-sm); font-size: 0.94rem; }
@@ -807,31 +472,26 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .form-status[data-state="error"] { color: var(--terracotta-deep); }
 
 /* -----------------------------------------------------------
-   19. Footer
+   18. Footer
 ----------------------------------------------------------- */
 .site-footer { background: var(--espresso); color: var(--cream); padding-block: var(--space-xl) var(--space-md); }
 .site-footer a:hover { color: var(--butter); }
 .footer-grid { display: grid; gap: var(--space-lg); margin-bottom: var(--space-lg); }
 @media (min-width: 780px) { .footer-grid { grid-template-columns: 1.4fr 1fr 1fr 1fr; } }
-.footer-logo { font-family: var(--font-sans); font-style: normal; font-weight: 700; font-size: 1.2rem; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: var(--space-sm); color: var(--cream); }
-.heart-mark { color: var(--ruby-red); font-size: 0.65em; vertical-align: middle; display: inline-block; margin-left: 0.2em; transform: translateY(-0.05em); }
-.heart-mark.on-dark { color: #F28D90; }
+.footer-logo { font-family: var(--font-serif); font-style: normal; font-weight: 500; font-size: 1.4rem; margin-bottom: var(--space-sm); color: var(--cream); }
 .footer-tagline { color: rgba(251,246,236,0.7); max-width: 32ch; }
-.footer-col h4 { color: var(--butter); font-size: 0.8rem; margin-bottom: var(--space-sm); }
-.footer-col ul { display: flex; flex-direction: column; gap: 0.85em; }
-.footer-col a {
-  color: rgba(251,246,236,0.85); font-size: 0.82rem; font-weight: 700;
-  letter-spacing: 0.05em; text-transform: uppercase;
-}
+.footer-col h4 { color: var(--butter); font-size: 0.78rem; margin-bottom: var(--space-sm); }
+.footer-col ul { display: flex; flex-direction: column; gap: 0.75em; }
+.footer-col a { color: rgba(251,246,236,0.82); font-size: 0.88rem; }
 .footer-col p { color: rgba(251,246,236,0.82); font-size: 0.94rem; }
 .footer-social { display: flex; gap: var(--space-sm); margin-top: var(--space-sm); }
-.footer-social a { width: 38px; height: 38px; border: 1px solid rgba(251,246,236,0.35); border-radius: 50%; display: grid; place-items: center; transition: background var(--transition), border-color var(--transition); }
-.footer-social a:hover { background: rgba(251,246,236,0.12); border-color: var(--cream); }
-.footer-social svg { width: 17px; height: 17px; }
-.footer-bottom { border-top: 1px solid rgba(251,246,236,0.18); padding-top: var(--space-md); display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-sm); font-size: 0.83rem; color: rgba(251,246,236,0.6); }
+.footer-social a { width: 36px; height: 36px; border: 1px solid rgba(251,246,236,0.3); border-radius: 50%; display: grid; place-items: center; transition: background var(--transition), border-color var(--transition); }
+.footer-social a:hover { background: rgba(251,246,236,0.1); border-color: var(--cream); }
+.footer-social svg { width: 16px; height: 16px; }
+.footer-bottom { border-top: 1px solid rgba(251,246,236,0.16); padding-top: var(--space-md); display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-sm); font-size: 0.82rem; color: rgba(251,246,236,0.58); }
 
 /* -----------------------------------------------------------
-   20. Quiet closing note — replaces heavy "CTA band" pattern
+   19. Quiet closing note
 ----------------------------------------------------------- */
 .closing-note {
   text-align: center;
@@ -839,35 +499,35 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   border-top: 1px solid var(--color-line);
 }
 .closing-note .btn { margin-top: var(--space-md); }
-.closing-note h2 { margin-bottom: 0.3em; font-style: normal; font-weight: 600; }
+.closing-note h2 { margin-bottom: 0.3em; }
 
 /* -----------------------------------------------------------
-   21. Page hero (interior pages, non-editorial variant)
+   20. Page hero (interior pages)
 ----------------------------------------------------------- */
 .page-hero { padding-top: var(--space-xl); padding-bottom: var(--space-lg); }
 .page-hero .lede { margin-top: var(--space-sm); }
-.breadcrumb { font-size: 0.83rem; color: var(--color-text-soft); margin-bottom: var(--space-sm); }
+.breadcrumb { font-size: 0.82rem; color: var(--color-text-soft); margin-bottom: var(--space-sm); }
 .breadcrumb a:hover { color: var(--color-accent-warm); }
 
 /* -----------------------------------------------------------
-   22. Reveal-on-scroll animation
+   21. Reveal-on-scroll — subtle, not showy
 ----------------------------------------------------------- */
-.reveal { opacity: 0; transform: translateY(24px); transition: opacity 900ms cubic-bezier(0.22,1,0.36,1), transform 900ms cubic-bezier(0.22,1,0.36,1); }
+.reveal { opacity: 0; transform: translateY(16px); transition: opacity 800ms cubic-bezier(0.22,1,0.36,1), transform 800ms cubic-bezier(0.22,1,0.36,1); }
 .reveal.is-visible { opacity: 1; transform: translateY(0); }
-.reveal-delay-1 { transition-delay: 100ms; }
-.reveal-delay-2 { transition-delay: 220ms; }
-.reveal-delay-3 { transition-delay: 340ms; }
+.reveal-delay-1 { transition-delay: 90ms; }
+.reveal-delay-2 { transition-delay: 180ms; }
+.reveal-delay-3 { transition-delay: 270ms; }
 
 /* -----------------------------------------------------------
-   23. Utility
+   22. Utility
 ----------------------------------------------------------- */
 .text-center { text-align: center; }
 .mt-lg { margin-top: var(--space-lg); }
 .mt-md { margin-top: var(--space-md); }
 .mx-auto { margin-inline: auto; }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
-.placeholder-note { font-size: 0.84rem; color: var(--color-text-soft); border: 1px dashed var(--color-line); padding: var(--space-sm); border-radius: var(--radius-sm); margin-top: var(--space-sm); }
+.placeholder-note { font-size: 0.84rem; color: var(--color-text-soft); border: 1px dashed var(--color-line); padding: var(--space-sm); margin-top: var(--space-sm); }
 
 /* 404 */
 .error-page { min-height: 55vh; display: grid; place-items: center; text-align: center; padding-block: var(--space-2xl); }
-.error-page h1 { font-size: clamp(3.2rem, 9vw, 6rem); }
+.error-page h1 { font-size: clamp(2.8rem, 8vw, 5rem); }
