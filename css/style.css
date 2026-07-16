@@ -180,6 +180,8 @@ p + p { margin-top: 1.05em; }
 /* Used on tinted panels (peach, coastal) where warm accent tones drop below AA contrast */
 .eyebrow.deep { color: var(--espresso-soft); }
 .eyebrow.deep::before { background: var(--espresso-soft); }
+.eyebrow.ruby { color: var(--ruby-red); }
+.eyebrow.ruby::before { background: var(--ruby-red); }
 
 .script-accent {
   font-family: var(--font-script);
@@ -203,7 +205,7 @@ p + p { margin-top: 1.05em; }
   line-height: 0.8;
   padding-right: 0.1em;
   margin-top: 0.05em;
-  color: var(--color-accent-warm);
+  color: var(--ruby-red);
 }
 
 /* -----------------------------------------------------------
@@ -377,7 +379,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 
 .main-nav ul { display: flex; align-items: center; gap: var(--space-md); }
 .main-nav a {
-  font-size: 0.88rem; font-weight: 500; letter-spacing: 0.03em; text-transform: uppercase;
+  font-size: 0.86rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;
   position: relative; padding-block: 0.3em;
 }
 .main-nav a::after {
@@ -435,12 +437,12 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .postcard-note {
   background: var(--white-soft); border-radius: 4px; padding: 0.85em 1.25em;
   box-shadow: var(--shadow-lift); transform: rotate(-3deg);
-  font-family: var(--font-script); font-size: 1.25rem; color: var(--color-accent-warm);
+  font-family: var(--font-script); font-size: 1.25rem; color: var(--ruby-red);
   position: relative; display: inline-block;
 }
 .postcard-note::before {
   content: ''; position: absolute; top: 6px; right: 8px; width: 18px; height: 18px;
-  border: 1.1px dashed var(--color-accent-warm); border-radius: 3px; opacity: 0.5;
+  border: 1.1px dashed var(--ruby-red); border-radius: 3px; opacity: 0.5;
 }
 .hero-editorial .postcard-note { position: absolute; z-index: 3; top: var(--space-lg); right: var(--space-sm); }
 @media (min-width: 640px) { .hero-editorial .postcard-note { right: var(--space-md); } }
@@ -673,7 +675,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 ----------------------------------------------------------- */
 .note-intro { max-width: 48ch; margin-bottom: var(--space-xl); }
 .note-intro .script-accent { font-size: 1.6rem; display: block; margin-bottom: var(--space-2xs); transform: rotate(-1.5deg); }
-.note-intro h2 { margin-bottom: 0.25em; }
+.note-intro h2 { margin-bottom: 0.25em; font-style: italic; font-weight: 400; }
 
 .note-cards { display: grid; gap: var(--space-lg) var(--space-md); }
 @media (min-width: 720px) { .note-cards { grid-template-columns: repeat(2, 1fr); } }
@@ -792,7 +794,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .site-footer a:hover { color: var(--butter); }
 .footer-grid { display: grid; gap: var(--space-lg); margin-bottom: var(--space-lg); }
 @media (min-width: 780px) { .footer-grid { grid-template-columns: 1.4fr 1fr 1fr 1fr; } }
-.footer-logo { font-family: var(--font-serif); font-style: italic; font-weight: 400; font-size: 1.55rem; margin-bottom: var(--space-2xs); color: var(--cream); }
+.footer-logo { font-family: var(--font-serif); font-style: normal; font-weight: 600; font-size: 1.3rem; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: var(--space-sm); color: var(--cream); }
 .heart-mark { color: var(--ruby-red); font-size: 0.65em; vertical-align: middle; display: inline-block; margin-left: 0.2em; transform: translateY(-0.05em); }
 .heart-mark.on-dark { color: #F28D90; }
 .footer-tagline { color: rgba(251,246,236,0.7); max-width: 32ch; }
@@ -814,7 +816,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   border-top: 1px solid var(--color-line);
 }
 .closing-note .btn { margin-top: var(--space-md); }
-.closing-note h2 { margin-bottom: 0.3em; }
+.closing-note h2 { margin-bottom: 0.3em; font-style: italic; font-weight: 400; }
 
 /* -----------------------------------------------------------
    21. Page hero (interior pages, non-editorial variant)
