@@ -59,7 +59,7 @@
   <div class="container">
     <a href="index.html" class="logo" aria-label="Ruby's Table home">
       <span class="stamp" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#A6532F" stroke-width="1.5"><path d="M4 20 C6 8 14 2 20 1" stroke-linecap="round"/><ellipse cx="6.5" cy="16" rx="3" ry="1.7" transform="rotate(-35 6.5 16)"/><ellipse cx="11" cy="10" rx="3" ry="1.7" transform="rotate(-25 11 10)"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="#D02A2E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.2 C5.5 15.3 3 11.6 3 8.2 C3 5.4 5.2 3.3 7.9 3.3 C9.7 3.3 11.3 4.3 12 6 C12.7 4.3 14.3 3.3 16.1 3.3 C18.8 3.3 21 5.4 21 8.2 C21 11.6 18.5 15.3 12 20.2 Z"/></svg>
       </span>
       Ruby's Table
     </a>
@@ -83,12 +83,20 @@
 
 <main id="main">
 
-  <section class="section-minimal">
+  <section class="type-hero bg-linen">
     <div class="container">
       <p class="breadcrumb reveal"><a href="index.html">Home</a> / Menu</p>
-      <p class="eyebrow reveal">Family-Style, Made to Share</p>
-      <h1 class="reveal reveal-delay-1">The Menu</h1>
-      <p class="lede reveal reveal-delay-2">Every dish is prepared fresh to order in small batches. Pricing below reflects two serving sizes &mdash; pick what fits your table.</p>
+      <div class="type-hero-grid">
+        <div class="reveal reveal-delay-1">
+          <span class="chapter-num">No. 05</span>
+          <p class="eyebrow">Family-Style, Made to Share</p>
+          <h1>The Menu</h1>
+          <p class="lede mt-md">Every dish is prepared fresh to order in small batches. Pricing below reflects two serving sizes &mdash; pick what fits your table.</p>
+        </div>
+        <div class="type-hero-photo reveal reveal-delay-2 tilt-right">
+          <img src="images/menu-hero-detail.jpg.svg" alt="A dish plated and ready to serve" loading="lazy">
+        </div>
+      </div>
     </div>
   </section>
 
@@ -133,8 +141,7 @@
       <!-- EDITORIAL PHOTO BREAK -->
       <div class="offset-duo reveal" style="margin-block: var(--space-xl);">
         <div class="offset-item" style="position:relative;">
-          <span class="plate-label">No. 05 &mdash; The Menu</span>
-          <div class="photo-frame wide">
+          <div class="photo-frame wide organic">
             <img src="images/dish-lemon-shallot-pasta.jpg.svg" alt="Lemon Shallot Pasta, ready to serve" width="900" height="1125" loading="lazy">
           </div>
         </div>
@@ -144,7 +151,7 @@
       </div>
 
       <!-- SALADS -->
-      <div class="menu-category" id="salads">
+      <div class="menu-category tint tint-coastal" id="salads">
         <div class="menu-category-head reveal">
           <div>
             <p class="eyebrow coastal">Salads</p>
@@ -169,10 +176,10 @@
       </div>
 
       <!-- DESSERTS -->
-      <div class="menu-category" id="desserts">
+      <div class="menu-category tint tint-peach" id="desserts">
         <div class="menu-category-head reveal">
           <div>
-            <p class="eyebrow">Desserts</p>
+            <p class="eyebrow deep">Desserts</p>
             <h2>Desserts</h2>
           </div>
         </div>
@@ -215,7 +222,7 @@
   <div class="container">
     <div class="footer-grid">
       <div>
-        <div class="footer-logo">Ruby's Table</div>
+        <div class="footer-logo">Ruby's Table<span class="heart-mark on-dark" aria-hidden="true">&#9829;</span></div>
         <p class="footer-tagline">Family-style meals, made to share — delivered to your door in Charleston, SC.</p>
         <div class="footer-social">
           <a href="https://www.instagram.com/rubys.table" aria-label="Ruby's Table on Instagram" target="_blank" rel="noopener">

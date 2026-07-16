@@ -38,6 +38,12 @@
   --espresso-soft:   #6B5642;
   --white-soft:      #FFFDF8;
 
+  /* Ruby's signature red — used sparingly and intentionally as the brand's
+     one saturated mark: the logo heart and primary buttons only. It does not
+     replace the terracotta/olive/coastal accent system used everywhere else. */
+  --ruby-red:      #D02A2E;
+  --ruby-red-deep: #A81F22;
+
   --color-bg:            var(--cream);
   --color-bg-alt:        var(--cream-deep);
   --color-text:          var(--espresso);
@@ -169,6 +175,11 @@ p + p { margin-top: 1.05em; }
 .eyebrow.warm::before { background: var(--color-accent-warm); }
 .eyebrow.coastal { color: var(--color-accent-coastal); }
 .eyebrow.coastal::before { background: var(--color-accent-coastal); }
+.eyebrow.peach { color: var(--color-accent-warm); }
+.eyebrow.peach::before { background: var(--color-accent-warm); }
+/* Used on tinted panels (peach, coastal) where warm accent tones drop below AA contrast */
+.eyebrow.deep { color: var(--espresso-soft); }
+.eyebrow.deep::before { background: var(--espresso-soft); }
 
 .script-accent {
   font-family: var(--font-script);
@@ -214,8 +225,37 @@ section { padding-block: var(--space-2xl); }
 
 .bg-alt   { background: var(--color-bg-alt); }
 .bg-linen { background: var(--linen); }
+.bg-sage    { background: var(--sage-soft); }
+.bg-coastal { background: var(--coastal-soft); }
+.bg-peach   { background: var(--peach); }
+.bg-butter  { background: var(--butter-soft); }
 .bg-espresso { background: var(--espresso); color: var(--cream); }
 .bg-espresso h1, .bg-espresso h2, .bg-espresso h3 { color: var(--cream); }
+
+/* On any tinted panel, --color-accent-warm is redefined one shade deeper —
+   the everyday terracotta reads fine on plain cream but drops under AA
+   contrast on linen/sage/coastal/peach/butter. Everything already built on
+   this token (prices, pull-quotes, links, .eyebrow.warm) stays legible
+   automatically, no per-element overrides needed. */
+.bg-linen, .bg-sage, .bg-coastal, .bg-peach, .bg-butter,
+.menu-category.tint, .split-copy.on-butter, .split-copy.on-sage {
+  --color-accent-warm: #874025;
+}
+
+/* -----------------------------------------------------------
+   5b. Menu category tint — wraps a whole category in a soft
+   color panel so each one reads as its own moment while
+   scrolling, instead of three identical white blocks.
+----------------------------------------------------------- */
+.menu-category.tint {
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg) var(--space-md);
+  border-top: none;
+  margin-block: var(--space-md);
+}
+.menu-category.tint.tint-coastal { background: var(--coastal-soft); }
+.menu-category.tint.tint-peach   { background: var(--peach); }
+.menu-category.tint .menu-item { border-bottom-color: rgba(74,58,44,0.18); }
 
 .grid { display: grid; gap: var(--space-md); }
 @media (min-width: 780px) {
@@ -258,8 +298,8 @@ section { padding-block: var(--space-2xl); }
 }
 .btn:hover { transform: translateY(-2px); }
 
-.btn-primary { background: var(--color-accent-warm); color: var(--white-soft); box-shadow: var(--shadow-soft); }
-.btn-primary:hover { background: var(--espresso); box-shadow: var(--shadow-lift); }
+.btn-primary { background: var(--ruby-red); color: var(--white-soft); box-shadow: var(--shadow-soft); }
+.btn-primary:hover { background: var(--ruby-red-deep); box-shadow: var(--shadow-lift); }
 
 .btn-outline { background: transparent; color: var(--color-text); border: 1.3px solid var(--color-text); }
 .btn-outline:hover { background: var(--color-text); color: var(--color-bg); }
@@ -329,7 +369,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 }
 .logo .stamp {
   width: 32px; height: 32px;
-  border: 1.3px dashed var(--color-accent-warm); border-radius: 4px;
+  border: 1.3px dashed var(--ruby-red); border-radius: 4px;
   display: grid; place-items: center; flex-shrink: 0;
 }
 .logo .stamp svg { width: 17px; height: 17px; }
@@ -571,18 +611,77 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 
 /* -----------------------------------------------------------
    14e. Organic blob accent — a soft, hand-drawn-feeling shape
-   used once as a background accent, never as a repeated motif.
+   used sparingly as a background accent behind photography or
+   typography, never as a repeated grid motif. Each instance uses
+   one tint, sized and placed by hand per section.
 ----------------------------------------------------------- */
 .blob-accent {
   position: absolute;
   border-radius: 62% 38% 55% 45% / 45% 55% 45% 55%;
   z-index: -1;
+  pointer-events: none;
+}
+.blob-accent.tint-peach   { background: var(--peach); }
+.blob-accent.tint-sage    { background: var(--sage-soft); }
+.blob-accent.tint-coastal { background: var(--coastal-soft); }
+.blob-accent.tint-butter  { background: var(--butter-soft); }
+
+/* -----------------------------------------------------------
+   14f. Organic photo frame — a softer, asymmetric silhouette
+   used once or twice per page in place of the standard rounded
+   rectangle, so photography doesn't feel boxed by a grid.
+----------------------------------------------------------- */
+.photo-frame.organic { border-radius: 58% 42% 39% 61% / 55% 40% 60% 45%; }
+
+/* -----------------------------------------------------------
+   14g. Split-media inset — a small second photograph tucked over
+   a full-bleed image, like a snapshot set on top of a larger
+   print. A quiet way to layer photography without repeating the
+   layered-frames composition on every page.
+----------------------------------------------------------- */
+.split-media-inset {
+  position: absolute;
+  z-index: 3;
+  width: 40%;
+  max-width: 230px;
+  aspect-ratio: 4/5;
+  border: 7px solid var(--white-soft);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-lift);
+  overflow: hidden;
+}
+.split-media-inset img { width: 100%; height: 100%; object-fit: cover; }
+.split-media-inset.inset-bottom-left  { bottom: var(--space-md); left: var(--space-md); }
+.split-media-inset.inset-bottom-right { bottom: var(--space-md); right: var(--space-md); }
+.split-media-inset.inset-top-right    { top: var(--space-md); right: var(--space-md); }
+@media (max-width: 640px) {
+  .split-media-inset { width: 34%; max-width: 150px; border-width: 5px; }
 }
 
 /* -----------------------------------------------------------
    15. Cards (used sparingly)
 ----------------------------------------------------------- */
 .card { background: var(--white-soft); border-radius: var(--radius-md); padding: var(--space-md); box-shadow: var(--shadow-soft); }
+
+/* -----------------------------------------------------------
+   15b. Typographic hero — an oversized-numeral, text-led page
+   opener paired with one small tilted photograph. Used once
+   (Menu) so no two interior pages open the same way.
+----------------------------------------------------------- */
+.type-hero { position: relative; padding-top: var(--space-xl); }
+.type-hero-grid { display: grid; gap: var(--space-lg); align-items: end; }
+@media (min-width: 860px) { .type-hero-grid { grid-template-columns: 1fr auto; } }
+.type-hero .chapter-num {
+  font-family: var(--font-serif); font-style: italic; font-weight: 400;
+  font-size: clamp(3.4rem, 8vw, 5.6rem); line-height: 1; color: var(--butter);
+  display: block; margin-bottom: -0.15em;
+}
+.type-hero-photo {
+  width: 168px; border: 7px solid var(--white-soft); border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-lift); overflow: hidden; aspect-ratio: 4/5; justify-self: end;
+}
+@media (max-width: 859px) { .type-hero-photo { width: 130px; } }
+.type-hero-photo img { width: 100%; height: 100%; object-fit: cover; }
 
 /* -----------------------------------------------------------
    16. Menu page
@@ -650,6 +749,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .footer-grid { display: grid; gap: var(--space-lg); margin-bottom: var(--space-lg); }
 @media (min-width: 780px) { .footer-grid { grid-template-columns: 1.4fr 1fr 1fr 1fr; } }
 .footer-logo { font-family: var(--font-serif); font-style: italic; font-weight: 400; font-size: 1.55rem; margin-bottom: var(--space-2xs); color: var(--cream); }
+.heart-mark { color: var(--ruby-red); font-size: 0.65em; vertical-align: middle; display: inline-block; margin-left: 0.2em; transform: translateY(-0.05em); }
+.heart-mark.on-dark { color: #F28D90; }
 .footer-tagline { color: rgba(251,246,236,0.7); max-width: 32ch; }
 .footer-col h4 { color: var(--butter); font-size: 0.8rem; margin-bottom: var(--space-sm); }
 .footer-col ul { display: flex; flex-direction: column; gap: 0.7em; }

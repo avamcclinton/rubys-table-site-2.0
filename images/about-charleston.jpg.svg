@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1125" role="img" aria-label="Charleston Afternoons placeholder">
+  <defs>
+    <linearGradient id="grad-charleston" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#DCE6E4" />
+      <stop offset="100%" stop-color="#FBF6EC" />
+    </linearGradient>
+  </defs>
+  <rect width="900" height="1125" fill="url(#grad-charleston)" />
+  <rect x="20" y="20" width="860" height="1085" fill="none" stroke="#4E6367" stroke-opacity="0.35" stroke-width="1.2" stroke-dasharray="1 9" />
+  <g transform="translate(415.0,522.5)" fill="none" stroke="#4E6367" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.75">
+    <path d="M0,70 C5,30 25,5 60,0" stroke-linecap="round"/>
+    <path d="M15,55 C20,40 35,30 50,26" opacity="0.6"/>
+    <ellipse cx="10" cy="58" rx="8" ry="4.5" transform="rotate(-30 10 58)"/>
+    <ellipse cx="30" cy="34" rx="8" ry="4.5" transform="rotate(-15 30 34)"/>
+    <ellipse cx="52" cy="10" rx="8" ry="4.5" transform="rotate(-5 52 10)"/>
+  </g>
+  <text x="450.0" y="602.5" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="30" fill="#4A3A2C" opacity="0.75">Charleston Afternoons</text>
+  <text x="450.0" y="628.5" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="12" letter-spacing="2" fill="#4A3A2C" opacity="0.45">PHOTO COMING SOON</text>
+</svg>

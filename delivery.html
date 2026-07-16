@@ -34,7 +34,7 @@
   <div class="container">
     <a href="index.html" class="logo" aria-label="Ruby's Table home">
       <span class="stamp" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#A6532F" stroke-width="1.5"><path d="M4 20 C6 8 14 2 20 1" stroke-linecap="round"/><ellipse cx="6.5" cy="16" rx="3" ry="1.7" transform="rotate(-35 6.5 16)"/><ellipse cx="11" cy="10" rx="3" ry="1.7" transform="rotate(-25 11 10)"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="#D02A2E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.2 C5.5 15.3 3 11.6 3 8.2 C3 5.4 5.2 3.3 7.9 3.3 C9.7 3.3 11.3 4.3 12 6 C12.7 4.3 14.3 3.3 16.1 3.3 C18.8 3.3 21 5.4 21 8.2 C21 11.6 18.5 15.3 12 20.2 Z"/></svg>
       </span>
       Ruby's Table
     </a>
@@ -58,32 +58,36 @@
 
 <main id="main">
 
-  <section class="section-minimal">
+  <section class="section-minimal" style="padding-bottom:0;">
     <div class="container">
       <p class="breadcrumb reveal"><a href="index.html">Home</a> / Delivery &amp; Ordering</p>
-      <p class="eyebrow reveal">Delivery &amp; Ordering</p>
-      <h1 class="reveal reveal-delay-1">Fresh, delivered to your door</h1>
-      <p class="lede reveal reveal-delay-2">Everything you need to know before placing your order.</p>
     </div>
   </section>
 
-  <!-- HOW TO ORDER + DELIVERY -->
+  <!-- HOW TO ORDER + DELIVERY — the split-screen itself is the hero -->
   <section class="split-screen split-wide-right section-flush">
     <div class="split-copy on-coastal reveal">
-      <p class="eyebrow coastal">How to Order</p>
-      <h2>Text 828.772.4255</h2>
-      <p class="mt-md">Text us to place your order. We ask for at least 48 hours' notice so everything's made fresh. Prefer to pick up in person? Let us know when you text your order and we'll arrange a pickup time and location.</p>
+      <p class="eyebrow coastal">Delivery &amp; Ordering</p>
+      <h1 style="font-size:clamp(2.3rem,4vw,3.4rem);">Fresh, delivered<br>to your door.</h1>
+      <p class="lede mt-md">Everything you need to know before placing your order.</p>
+      <div class="divider"></div>
+      <h2 style="font-size:clamp(1.4rem,2.2vw,1.8rem);">Text 828.772.4255</h2>
+      <p>We ask for at least 48 hours' notice so everything's made fresh. Prefer to pick up in person? Let us know when you text your order and we'll arrange a pickup time and location.</p>
       <p class="pull-quote">Delivery is $10, or free on orders over $200.</p>
       <p>Meals arrive chilled with easy reheating instructions, delivered across <span class="script-accent" style="font-size:1em;">Charleston, SC</span> &amp; the surrounding Lowcountry.</p>
     </div>
     <div class="split-media reveal reveal-delay-1">
       <span class="plate-label" style="color:rgba(251,246,236,0.85);">No. 03 &mdash; Delivered</span>
       <img src="images/delivery-hero.jpg.svg" alt="Ruby's Table meals packaged for delivery" width="1000" height="1250" loading="lazy">
+      <div class="split-media-inset inset-top-right tilt-right">
+        <img src="images/delivery-detail.jpg.svg" alt="A meal packed and ready to go" loading="lazy">
+      </div>
     </div>
   </section>
 
   <!-- DETAILS -->
-  <section class="section-vast">
+  <section class="section-vast bg-linen" style="position:relative; overflow:hidden;">
+    <span class="blob-accent tint-sage" style="width:420px; height:420px; bottom:-110px; left:-120px; opacity:0.85;" aria-hidden="true"></span>
     <div class="container">
       <div class="section-heading reveal">
         <p class="eyebrow">The Details</p>
@@ -115,7 +119,7 @@
   </section>
 
   <!-- QUIET CLOSING -->
-  <section class="closing-note">
+  <section class="closing-note bg-butter" style="border-top:none;">
     <div class="container reveal">
       <h2>Ready when you are</h2>
       <p class="lede mx-auto">Follow along on Instagram &amp; TikTok <a href="https://www.instagram.com/rubys.table" style="text-decoration:underline;" target="_blank" rel="noopener">@rubys.table</a> for seasonal menu changes, or reach out below.</p>
@@ -132,7 +136,7 @@
   <div class="container">
     <div class="footer-grid">
       <div>
-        <div class="footer-logo">Ruby's Table</div>
+        <div class="footer-logo">Ruby's Table<span class="heart-mark on-dark" aria-hidden="true">&#9829;</span></div>
         <p class="footer-tagline">Family-style meals, made to share — delivered to your door in Charleston, SC.</p>
         <div class="footer-social">
           <a href="https://www.instagram.com/rubys.table" aria-label="Ruby's Table on Instagram" target="_blank" rel="noopener">

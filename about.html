@@ -34,7 +34,7 @@
   <div class="container">
     <a href="index.html" class="logo" aria-label="Ruby's Table home">
       <span class="stamp" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#A6532F" stroke-width="1.5"><path d="M4 20 C6 8 14 2 20 1" stroke-linecap="round"/><ellipse cx="6.5" cy="16" rx="3" ry="1.7" transform="rotate(-35 6.5 16)"/><ellipse cx="11" cy="10" rx="3" ry="1.7" transform="rotate(-25 11 10)"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="#D02A2E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.2 C5.5 15.3 3 11.6 3 8.2 C3 5.4 5.2 3.3 7.9 3.3 C9.7 3.3 11.3 4.3 12 6 C12.7 4.3 14.3 3.3 16.1 3.3 C18.8 3.3 21 5.4 21 8.2 C21 11.6 18.5 15.3 12 20.2 Z"/></svg>
       </span>
       Ruby's Table
     </a>
@@ -58,16 +58,14 @@
 
 <main id="main">
 
-  <section class="section-minimal">
+  <section class="section-minimal" style="padding-bottom:0;">
     <div class="container">
       <p class="breadcrumb reveal"><a href="index.html">Home</a> / About</p>
-      <p class="eyebrow reveal">About Ruby</p>
-      <h1 class="reveal reveal-delay-1">Hi, I'm Ruby.</h1>
     </div>
   </section>
 
-  <!-- PORTRAIT + STORY — arch frame, layered, drop cap -->
-  <section class="section-tight">
+  <!-- PORTRAIT + STORY — the page's heading lives here, not in a separate template hero -->
+  <section class="section-tight bg-linen">
     <div class="container offset-duo">
       <div class="offset-item reveal" style="position:relative;">
         <span class="plate-label">No. 02 &mdash; Ruby</span>
@@ -81,6 +79,8 @@
         </div>
       </div>
       <div class="offset-item reveal reveal-delay-1">
+        <p class="eyebrow">About Ruby</p>
+        <h1 style="font-size:clamp(2.6rem,5vw,4.4rem); margin-bottom:var(--space-md);">Hi, I'm Ruby.</h1>
         <p class="drop-cap">I'm a 7-year Charleston resident with a background in marketing and sales. I've spent my career building relationships and taking care of people, whether that meant managing accounts or working in influencer marketing. Somewhere along the way, cooking became the thing I kept coming back to outside of work.</p>
 
         <p class="mt-md">I've always loved to cook. There's something about being in the kitchen that I genuinely enjoy, whether I'm cooking for myself or for people I care about. For a while it was just something I did on the side, but I kept coming back to the idea of turning it into an actual career, so here we are!</p>
@@ -104,11 +104,15 @@
     </div>
     <div class="split-media reveal reveal-delay-1">
       <img src="images/about-kitchen.jpg.svg" alt="Ruby in the kitchen" width="1000" height="800" loading="lazy">
+      <div class="split-media-inset inset-bottom-left tilt-left">
+        <img src="images/about-charleston.jpg.svg" alt="A quiet Charleston afternoon" loading="lazy">
+      </div>
     </div>
   </section>
 
   <!-- QUIET CLOSING -->
-  <section class="closing-note">
+  <section class="closing-note bg-butter" style="position:relative; border-top:none;">
+    <span class="blob-accent tint-peach" style="width:380px; height:380px; top:-90px; right:2%; opacity:0.6;" aria-hidden="true"></span>
     <div class="container reveal">
       <h2>Bring Ruby's Table to yours</h2>
       <p class="lede mx-auto">A small taste of what's made with care, delivered right to your door.</p>
@@ -122,7 +126,7 @@
   <div class="container">
     <div class="footer-grid">
       <div>
-        <div class="footer-logo">Ruby's Table</div>
+        <div class="footer-logo">Ruby's Table<span class="heart-mark on-dark" aria-hidden="true">&#9829;</span></div>
         <p class="footer-tagline">Family-style meals, made to share — delivered to your door in Charleston, SC.</p>
         <div class="footer-social">
           <a href="https://www.instagram.com/rubys.table" aria-label="Ruby's Table on Instagram" target="_blank" rel="noopener">
