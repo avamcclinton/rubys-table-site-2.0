@@ -423,7 +423,13 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   display: flex; align-items: flex-end; overflow: hidden;
 }
 .hero-editorial .hero-editorial-media { position: absolute; inset: 0; }
-.hero-editorial .hero-editorial-media img { width: 100%; height: 100%; object-fit: cover; }
+.hero-editorial .hero-editorial-media img {
+  width: 100%; height: 100%; object-fit: cover;
+  /* Source photo is a wide 2.35:1 panorama of the bridge; on tall/narrow
+     screens this keeps the towers in frame instead of centering on empty
+     sky or water at the far edges of the shot. */
+  object-position: 58% 42%;
+}
 .hero-editorial .hero-editorial-media::after {
   content: ''; position: absolute; inset: 0;
   /* Deep, warm scrim — kept dark enough everywhere (not just faded at the
