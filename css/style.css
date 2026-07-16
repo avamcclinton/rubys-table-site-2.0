@@ -175,9 +175,8 @@ p + p { margin-top: 1.05em; }
 ----------------------------------------------------------- */
 .heart-mark {
   color: var(--ruby-red);
-  font-size: 0.6em;
-  vertical-align: super;
-  margin-left: 0.2em;
+  font-size: 0.55em;
+  line-height: 1;
   display: inline-block;
 }
 .heart-mark.on-dark { color: var(--ruby-red-bright); }
@@ -281,6 +280,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 }
 
 .logo {
+  display: inline-flex; align-items: center; gap: 0.32em;
   font-family: var(--font-serif); font-style: normal; font-weight: 500;
   font-size: 1.5rem; color: var(--espresso); letter-spacing: 0.01em;
 }
@@ -479,7 +479,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .site-footer a:hover { color: var(--butter); }
 .footer-grid { display: grid; gap: var(--space-lg); margin-bottom: var(--space-lg); }
 @media (min-width: 780px) { .footer-grid { grid-template-columns: 1.4fr 1fr 1fr 1fr; } }
-.footer-logo { font-family: var(--font-serif); font-style: normal; font-weight: 500; font-size: 1.4rem; margin-bottom: var(--space-sm); color: var(--cream); }
+.footer-logo {
+  display: inline-flex; align-items: center; gap: 0.32em;
+  font-family: var(--font-serif); font-style: normal; font-weight: 500;
+  font-size: 1.4rem; margin-bottom: var(--space-sm); color: var(--cream);
+}
 .footer-tagline { color: rgba(251,246,236,0.7); max-width: 32ch; }
 .footer-col h4 { color: var(--butter); font-size: 0.78rem; margin-bottom: var(--space-sm); }
 .footer-col ul { display: flex; flex-direction: column; gap: 0.75em; }
