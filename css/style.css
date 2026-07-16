@@ -174,12 +174,13 @@ p + p { margin-top: 1.05em; }
    above. Not a palette shift, just a heartbeat of brand color.
 ----------------------------------------------------------- */
 .heart-mark {
-  color: var(--ruby-red-bright);
-  font-size: 0.65em;
+  color: var(--ruby-red);
+  font-size: 0.6em;
   vertical-align: super;
   margin-left: 0.2em;
   display: inline-block;
 }
+.heart-mark.on-dark { color: var(--ruby-red-bright); }
 
 .section-heading { margin-bottom: var(--space-lg); max-width: 60ch; }
 .section-heading.center { margin-left: auto; margin-right: auto; text-align: center; }
