@@ -399,20 +399,50 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 @media (min-width: 820px) { .offset-duo { grid-template-columns: 5fr 7fr; } }
 
 /* -----------------------------------------------------------
-   14. Breathing photo — full-bleed image, one small caption.
-   Photography carries the moment; nothing competes with it.
+   14b. Editorial Instagram-style gallery — a peek into the
+   camera roll, not an ad unit. Fixed-height row, varied
+   widths, horizontal scroll. Swap <img src> only; the layout
+   (sizes, order, spacing) is designed to stay put.
 ----------------------------------------------------------- */
-.breathing-photo { position: relative; }
-.breathing-photo .photo-frame { border-radius: 0; aspect-ratio: 21/11; }
-.breathing-photo-caption {
-  position: relative; max-width: var(--container-max); margin-inline: auto;
-  padding: var(--space-sm) var(--space-sm) 0;
+.ig-gallery-head { text-align: center; margin-bottom: var(--space-lg); }
+
+.ig-gallery-scroll {
+  display: flex;
+  gap: var(--space-sm);
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  padding-inline: var(--space-sm);
+  padding-bottom: var(--space-2xs);
+  scrollbar-width: thin;
+  scrollbar-color: var(--taupe) transparent;
 }
-@media (min-width: 640px) { .breathing-photo-caption { padding-inline: var(--space-md); } }
-.breathing-photo-caption span {
-  font-family: var(--font-sans); font-size: 0.72rem; letter-spacing: 0.14em;
-  text-transform: uppercase; color: var(--color-text-soft);
+@media (min-width: 640px) { .ig-gallery-scroll { padding-inline: var(--space-md); } }
+.ig-gallery-scroll::-webkit-scrollbar { height: 6px; }
+.ig-gallery-scroll::-webkit-scrollbar-thumb { background: var(--taupe); border-radius: 10px; }
+.ig-gallery-scroll::-webkit-scrollbar-track { background: transparent; }
+
+.ig-gallery-item {
+  position: relative;
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  height: min(52vh, 480px);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: var(--linen);
 }
+.ig-gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.ig-gallery-item.size-sm { width: min(60vw, 250px); }
+.ig-gallery-item.size-md { width: min(72vw, 330px); }
+.ig-gallery-item.size-lg { width: min(86vw, 430px); }
+
+.ig-follow-link {
+  display: inline-flex; align-items: center; gap: 0.45em;
+  font-size: 0.85rem; letter-spacing: 0.02em; color: var(--color-text-soft);
+  border-bottom: 1px solid var(--color-line);
+  padding-bottom: 0.15em;
+  transition: color var(--transition), border-color var(--transition);
+}
+.ig-follow-link:hover { color: var(--color-accent-warm); border-color: var(--color-accent-warm); }
 
 /* -----------------------------------------------------------
    15. Menu page
