@@ -2,7 +2,7 @@
    RUBY'S TABLE — Global Stylesheet
    A bright, airy, editorial design system for a boutique
    Charleston catering brand: cream & soft white & butter & olive
-   & warm taupe & muted terracotta, a hint of coastal blue.
+   & warm taupe & dusty rose, a hint of coastal blue.
    Photography-led. One idea per section. No filler.
    Custom CSS, no framework.
    =========================================================== */
@@ -29,8 +29,8 @@
   --taupe-deep:      #7A6B54;
   --olive:          #8B9166;
   --olive-deep:      #5F6640;
-  --terracotta:      #C97552;
-  --terracotta-deep: #A6532F;
+  --rose:      #E8A0BC;
+  --rose-deep: #B83A70;
   --coastal-soft:      #DCE6E4;
   --coastal-deep:      #4E6367;
   --espresso:        #4A3A2C;
@@ -45,7 +45,7 @@
   --color-text-soft:     var(--espresso-soft);
   --color-accent:        var(--olive);
   --color-accent-deep:   var(--olive-deep);
-  --color-accent-warm:   var(--terracotta-deep);
+  --color-accent-warm:   var(--rose-deep);
   --color-accent-coastal: var(--coastal-deep);
   --color-line:          rgba(74, 58, 44, 0.12);
 
@@ -243,7 +243,7 @@ section { padding-block: var(--space-2xl); }
 }
 .btn:hover { opacity: 0.82; }
 
-.btn-primary { background: var(--terracotta-deep); color: var(--soft-white); }
+.btn-primary { background: var(--rose-deep); color: var(--soft-white); }
 .btn-primary:hover { background: var(--espresso); opacity: 1; }
 
 .btn-outline { background: transparent; color: var(--color-text); border: 1px solid var(--color-text); }
@@ -496,12 +496,12 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   background: var(--soft-white); transition: border-color var(--transition), box-shadow var(--transition);
 }
 .field input:focus, .field select:focus, .field textarea:focus {
-  outline: none; border-color: var(--color-accent-warm); box-shadow: 0 0 0 3px rgba(166, 83, 47, 0.10);
+  outline: none; border-color: var(--color-accent-warm); box-shadow: 0 0 0 3px rgba(184, 58, 112, 0.10);
 }
 .field textarea { resize: vertical; min-height: 130px; }
 .form-status { margin-top: var(--space-sm); font-size: 0.94rem; }
 .form-status[data-state="success"] { color: var(--olive-deep); }
-.form-status[data-state="error"] { color: var(--terracotta-deep); }
+.form-status[data-state="error"] { color: var(--rose-deep); }
 
 /* -----------------------------------------------------------
    18. Footer
