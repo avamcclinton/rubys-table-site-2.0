@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1250" role="img" aria-label="Ruby McClinton placeholder">
+  <defs>
+    <linearGradient id="grad-about-ruby-jpg-svg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F1D2C4" />
+      <stop offset="100%" stop-color="#F7E7B8" />
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="1250" fill="url(#grad-about-ruby-jpg-svg)" />
+  <rect x="20" y="20" width="960" height="1210" rx="4" fill="none" stroke="#8B9166" stroke-opacity="0.4" stroke-width="1.2" stroke-dasharray="1 9" stroke-linecap="round" />
+  <g transform="translate(500.0,607.0)" fill="none" stroke="#8B9166" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.8">
+    
+        <path d="M0,30 L0,-26" stroke-linecap="round"/>
+        <path d="M0,10 C-14,4 -20,-8 -16,-20 C-4,-18 4,-6 0,10 Z"/>
+        <path d="M0,-2 C14,-8 20,-20 16,-30 C4,-28 -4,-16 0,-2 Z"/>
+    
+  </g>
+  <text x="500.0" y="669.0" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="32" fill="#4A3A2C" opacity="0.78">Ruby McClinton</text>
+  <text x="500.0" y="695.0" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="14" letter-spacing="2" fill="#4A3A2C" opacity="0.45">PORTRAIT COMING SOON</text>
+</svg>

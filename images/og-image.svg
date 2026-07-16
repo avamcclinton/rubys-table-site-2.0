@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="og-grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F7E7B8" />
+      <stop offset="100%" stop-color="#F1D2C4" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#og-grad)" />
+  <rect x="34" y="34" width="1132" height="562" rx="18" fill="none" stroke="#8B9166" stroke-opacity="0.5" stroke-width="1.5" stroke-dasharray="1 10"/>
+  <text x="600" y="300" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-weight="500" font-size="82" fill="#4A3A2C">Ruby's Table</text>
+  <text x="600" y="360" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="22" letter-spacing="3" fill="#4A3A2C" opacity="0.7">FAMILY-STYLE CATERING, DELIVERED TO YOUR DOOR</text>
+  <text x="600" y="408" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="18" letter-spacing="2" fill="#8B6A4A">CHARLESTON, SOUTH CAROLINA</text>
+</svg>

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 1350" role="img" aria-label="Let's Set the Table placeholder">
+  <defs>
+    <linearGradient id="grad-home-contact-preview-jpg-svg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F1D2C4" />
+      <stop offset="100%" stop-color="#F7E7B8" />
+    </linearGradient>
+  </defs>
+  <rect width="1100" height="1350" fill="url(#grad-home-contact-preview-jpg-svg)" />
+  <rect x="20" y="20" width="1060" height="1310" rx="28" fill="none" stroke="#8B9166" stroke-opacity="0.4" stroke-width="1.2" stroke-dasharray="1 9" stroke-linecap="round" />
+  <g transform="translate(550.0,657.0)" fill="none" stroke="#8B9166" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.8">
+    
+        <path d="M-30,-4 L30,-4 L24,26 L-24,26 Z"/>
+        <path d="M-20,-4 C-20,-22 20,-22 20,-4"/>
+        <path d="M-18,4 L-14,20 M0,4 L0,20 M18,4 L14,20" stroke-width="1.4"/>
+    
+  </g>
+  <text x="550.0" y="719.0" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="32" fill="#4A3A2C" opacity="0.78">Let's Set the Table</text>
+  <text x="550.0" y="745.0" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="14" letter-spacing="2" fill="#4A3A2C" opacity="0.45">PHOTO COMING SOON</text>
+</svg>
