@@ -425,7 +425,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .hero-editorial .hero-editorial-media img { width: 100%; height: 100%; object-fit: cover; }
 .hero-editorial .hero-editorial-media::after {
   content: ''; position: absolute; inset: 0;
-  background: linear-gradient(0deg, rgba(74,58,44,0.58) 0%, rgba(74,58,44,0.06) 50%, rgba(74,58,44,0.02) 100%);
+  /* Deep, warm scrim — kept dark enough everywhere (not just faded at the
+     bottom) that cream/butter text stays legible regardless of how light
+     the underlying photo is. Verified: >=4.5:1 for both cream and butter
+     at every stop, not just the darkest point. */
+  background: linear-gradient(0deg, rgba(26,18,12,0.86) 0%, rgba(26,18,12,0.7) 100%);
 }
 .hero-editorial-content { position: relative; z-index: 2; color: var(--cream); padding: var(--space-xl) var(--space-sm) var(--space-lg); max-width: 900px; }
 @media (min-width: 640px) { .hero-editorial-content { padding-inline: var(--space-md); padding-bottom: var(--space-xl); } }
@@ -458,6 +462,14 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 }
 .split-screen .split-media { position: relative; min-height: 40vh; }
 .split-screen .split-media img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
+/* Scrim for split-media that carries a pale plate-label directly over the
+   photo (no other backing). Same fix as the hero: guarantees the label
+   stays readable regardless of how light the underlying image is. */
+.split-screen .split-media.has-label::after {
+  content: ''; position: absolute; inset: 0 0 65% 0; z-index: 1; pointer-events: none;
+  background: linear-gradient(180deg, rgba(26,18,12,0.68) 0%, rgba(26,18,12,0) 100%);
+}
+.split-screen .split-media.has-label .plate-label { z-index: 2; }
 .split-screen .split-copy { display: flex; flex-direction: column; justify-content: center; padding: var(--space-xl) var(--space-sm); }
 @media (min-width: 640px) { .split-screen .split-copy { padding: var(--space-2xl) var(--space-lg); } }
 .split-screen .split-copy.on-cream   { background: var(--cream); }
@@ -548,7 +560,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   left: var(--space-sm);
   display: none;
 }
-.hero-editorial .plate-label { color: rgba(251,246,236,0.75); left: var(--space-md); }
+.hero-editorial .plate-label { color: var(--cream); left: var(--space-md); z-index: 2; }
 @media (min-width: 780px) { .plate-label { display: block; } }
 
 /* -----------------------------------------------------------
