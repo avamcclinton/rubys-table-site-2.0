@@ -29,8 +29,11 @@
   --sage-soft:       #E4E6D6;
   --terracotta:      #C97552;
   --terracotta-deep: #A6532F;
-  --blush:          #F1D2C4;
-  --dusty-blue:      #B7BECE;
+  --peach:          #F1D2C4;
+  --blush:          #F1D2C4; /* alias, kept for backward compatibility */
+  --coastal:          #93ABAE;
+  --coastal-soft:      #DCE6E4;
+  --coastal-deep:      #4E6367;
   --espresso:        #4A3A2C;
   --espresso-soft:   #6B5642;
   --white-soft:      #FFFDF8;
@@ -42,6 +45,7 @@
   --color-accent:        var(--olive);
   --color-accent-deep:   var(--olive-deep);
   --color-accent-warm:   var(--terracotta-deep);
+  --color-accent-coastal: var(--coastal-deep);
   --color-line:          rgba(74, 58, 44, 0.14);
 
   --font-serif: 'Fraunces', 'Iowan Old Style', Georgia, serif;
@@ -127,8 +131,8 @@ h1, h2, h3, h4 {
   color: var(--color-text);
 }
 
-h1 { font-size: clamp(2.6rem, 5.6vw, 5rem); font-weight: 400; }
-h2 { font-size: clamp(2rem, 3.6vw, 3.1rem); }
+h1 { font-size: clamp(2.7rem, 5.8vw, 5.4rem); font-weight: 300; letter-spacing: -0.01em; }
+h2 { font-size: clamp(2rem, 3.6vw, 3.1rem); font-weight: 350; }
 h3 { font-size: clamp(1.35rem, 2vw, 1.65rem); font-weight: 500; }
 h4 { font-size: 1.05rem; letter-spacing: 0.02em; text-transform: uppercase; font-family: var(--font-sans); font-weight: 500; }
 
@@ -163,6 +167,8 @@ p + p { margin-top: 1.05em; }
 }
 .eyebrow.warm { color: var(--color-accent-warm); }
 .eyebrow.warm::before { background: var(--color-accent-warm); }
+.eyebrow.coastal { color: var(--color-accent-coastal); }
+.eyebrow.coastal::before { background: var(--color-accent-coastal); }
 
 .script-accent {
   font-family: var(--font-script);
@@ -411,10 +417,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .split-screen .split-media img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
 .split-screen .split-copy { display: flex; flex-direction: column; justify-content: center; padding: var(--space-xl) var(--space-sm); }
 @media (min-width: 640px) { .split-screen .split-copy { padding: var(--space-2xl) var(--space-lg); } }
-.split-screen .split-copy.on-cream  { background: var(--cream); }
-.split-screen .split-copy.on-butter { background: var(--butter-soft); }
-.split-screen .split-copy.on-sage   { background: var(--sage-soft); }
-.split-screen .split-copy.on-linen  { background: var(--linen); }
+.split-screen .split-copy.on-cream   { background: var(--cream); }
+.split-screen .split-copy.on-butter  { background: var(--butter-soft); }
+.split-screen .split-copy.on-sage    { background: var(--sage-soft); }
+.split-screen .split-copy.on-linen   { background: var(--linen); }
+.split-screen .split-copy.on-coastal { background: var(--coastal-soft); }
 
 /* -----------------------------------------------------------
    10. Oversized editorial pull-quote
@@ -476,6 +483,100 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 @media (min-width: 820px) {
   .offset-duo { grid-template-columns: 5fr 7fr; align-items: end; }
   .offset-duo .offset-item:first-child { margin-bottom: -7%; }
+}
+
+/* -----------------------------------------------------------
+   14b. Plate label — a small rotated, catalog-style caption
+   that runs along a photo's edge. An editorial, vintage-recipe-
+   book detail; use once or twice per page, never as decoration
+   for its own sake.
+----------------------------------------------------------- */
+.plate-label {
+  position: absolute;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--espresso-soft);
+  top: var(--space-md);
+  left: var(--space-sm);
+  display: none;
+}
+.hero-editorial .plate-label { color: rgba(251,246,236,0.75); left: var(--space-md); }
+@media (min-width: 780px) { .plate-label { display: block; } }
+
+/* -----------------------------------------------------------
+   14c. Breathing photo — a full-bleed image with a single
+   small caption. No headline, no body copy: photography does
+   the talking. Used to give the page a moment of quiet between
+   busier sections.
+----------------------------------------------------------- */
+.breathing-photo { position: relative; }
+.breathing-photo .photo-frame { border-radius: 0; aspect-ratio: 21/11; box-shadow: none; }
+.breathing-photo-caption {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-sm);
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding: var(--space-sm) var(--space-sm) 0;
+}
+@media (min-width: 640px) { .breathing-photo-caption { padding-inline: var(--space-md); } }
+.breathing-photo-caption p {
+  font-family: var(--font-script);
+  font-size: 1.3rem;
+  color: var(--color-accent-warm);
+  margin: 0;
+}
+.breathing-photo-caption span {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-text-soft);
+  white-space: nowrap;
+}
+
+/* -----------------------------------------------------------
+   14d. Recipe card — a floating index-card panel used in place
+   of a repeated split-screen; evokes a page torn from a recipe
+   box rather than a marketing panel.
+----------------------------------------------------------- */
+.recipe-card-layout { position: relative; }
+.recipe-card {
+  position: relative;
+  background: var(--white-soft);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lift);
+  padding: var(--space-lg) var(--space-md);
+  border: 1px solid var(--color-line);
+}
+.recipe-card::before {
+  content: '';
+  position: absolute;
+  top: 22px; left: 22px; right: 22px; bottom: 22px;
+  border: 1px solid var(--color-line);
+  border-radius: calc(var(--radius-md) - 6px);
+  pointer-events: none;
+}
+@media (min-width: 900px) {
+  .recipe-card-layout { display: grid; grid-template-columns: 7fr 5fr; align-items: center; }
+  .recipe-card { margin-left: -8%; z-index: 2; }
+}
+
+/* -----------------------------------------------------------
+   14e. Organic blob accent — a soft, hand-drawn-feeling shape
+   used once as a background accent, never as a repeated motif.
+----------------------------------------------------------- */
+.blob-accent {
+  position: absolute;
+  border-radius: 62% 38% 55% 45% / 45% 55% 45% 55%;
+  z-index: -1;
 }
 
 /* -----------------------------------------------------------
