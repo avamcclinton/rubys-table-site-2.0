@@ -8,12 +8,11 @@
 
 /* -----------------------------------------------------------
    1. Fonts
-   Piazzolla — warm editorial serif w/ elegant italic, headlines,
-               logo & body; bold italic carries display moments
-   Inter     — clean neutral grotesque, nav / buttons / UI labels
-   Caveat    — handwritten accent, used very sparingly
+   Inter  — clean, real, modern sans-serif; carries everything,
+            headlines included. No serif anywhere on the site.
+   Caveat — handwritten accent, used very sparingly
 ----------------------------------------------------------- */
-@import url('https://fonts.googleapis.com/css2?family=Piazzolla:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700;800&family=Caveat:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Caveat:wght@500;600&display=swap');
 
 /* -----------------------------------------------------------
    2. Design tokens
@@ -55,7 +54,6 @@
   --color-accent-coastal: var(--coastal-deep);
   --color-line:          rgba(74, 58, 44, 0.14);
 
-  --font-serif: 'Piazzolla', 'Iowan Old Style', Georgia, serif;
   --font-sans:  'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-script: 'Caveat', cursive;
 
@@ -131,7 +129,7 @@ input, textarea, select { font: inherit; color: inherit; }
    4. Typography
 ----------------------------------------------------------- */
 h1, h2, h3, h4 {
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
   font-weight: 400;
   line-height: 1.14;
   letter-spacing: -0.005em;
@@ -139,7 +137,7 @@ h1, h2, h3, h4 {
 }
 
 h1 { font-size: clamp(2.7rem, 5.8vw, 5.4rem); font-weight: 300; letter-spacing: -0.01em; }
-h2 { font-size: clamp(2rem, 3.6vw, 3.1rem); font-weight: 350; }
+h2 { font-size: clamp(2rem, 3.6vw, 3.1rem); font-weight: 400; }
 h3 { font-size: clamp(1.35rem, 2vw, 1.65rem); font-weight: 500; }
 h4 { font-size: 1.05rem; letter-spacing: 0.02em; text-transform: uppercase; font-family: var(--font-sans); font-weight: 500; }
 
@@ -198,10 +196,10 @@ p + p { margin-top: 1.05em; }
 
 /* Drop cap — a quiet editorial, cookbook-page opening */
 .drop-cap::first-letter {
-  font-family: var(--font-serif);
-  font-style: italic;
+  font-family: var(--font-sans);
+  font-style: normal;
   font-size: 4.2em;
-  font-weight: 400;
+  font-weight: 700;
   float: left;
   line-height: 0.8;
   padding-right: 0.1em;
@@ -343,12 +341,13 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 }
 .masthead .masthead-center {
   display: none;
-  font-family: var(--font-serif);
-  font-style: italic;
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-weight: 600;
   letter-spacing: 0.02em;
   text-transform: none;
   color: var(--color-accent-warm);
-  font-size: 0.85rem;
+  font-size: 0.78rem;
 }
 @media (min-width: 700px) { .masthead .masthead-center { display: block; } }
 
@@ -368,8 +367,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 
 .logo {
   display: flex; align-items: center; gap: 0.65em;
-  font-family: var(--font-serif); font-style: normal; font-weight: 600;
-  font-size: 1.3rem; color: var(--espresso); letter-spacing: 0.05em;
+  font-family: var(--font-sans); font-style: normal; font-weight: 700;
+  font-size: 1.2rem; color: var(--espresso); letter-spacing: 0.05em;
   text-transform: uppercase;
 }
 .logo .stamp {
@@ -484,9 +483,9 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
    10. Oversized editorial pull-quote
 ----------------------------------------------------------- */
 .magazine-quote { padding-block: var(--space-2xl); text-align: center; position: relative; }
-.magazine-quote .quote-mark { font-family: var(--font-serif); font-size: 5.5rem; line-height: 1; color: var(--butter); display: block; margin-bottom: -0.3em; }
+.magazine-quote .quote-mark { font-family: var(--font-sans); font-weight: 700; font-size: 5.5rem; line-height: 1; color: var(--butter); display: block; margin-bottom: -0.3em; }
 .magazine-quote blockquote {
-  font-family: var(--font-serif); font-style: italic; font-weight: 400;
+  font-family: var(--font-sans); font-style: normal; font-weight: 400;
   font-size: clamp(1.8rem, 4vw, 3.1rem); line-height: 1.32; max-width: 20ch;
   margin-inline: auto; color: var(--espresso);
 }
@@ -496,7 +495,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 }
 
 .pull-quote {
-  font-family: var(--font-serif); font-style: italic; font-weight: 400;
+  font-family: var(--font-sans); font-style: normal; font-weight: 500;
   font-size: clamp(1.3rem, 2.2vw, 1.85rem); line-height: 1.44; color: var(--color-accent-warm);
   border-left: 2px solid var(--color-accent); padding-left: var(--space-md); margin-block: var(--space-lg);
 }
@@ -510,7 +509,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   padding-block: var(--space-md); border-bottom: 1px solid var(--color-line); align-items: baseline;
 }
 @media (min-width: 720px) { .editorial-row { grid-template-columns: 100px 1fr 1.1fr; gap: var(--space-lg); } }
-.editorial-row .row-num { font-family: var(--font-serif); font-style: italic; font-size: 1.9rem; color: var(--color-accent-warm); line-height: 1; opacity: 0.85; }
+.editorial-row .row-num { font-family: var(--font-sans); font-weight: 700; font-size: 1.9rem; color: var(--color-accent-warm); line-height: 1; opacity: 0.85; }
 .editorial-row h3 { margin-bottom: 0.2em; }
 .editorial-row p { color: var(--color-text-soft); max-width: 52ch; }
 
@@ -689,7 +688,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 ----------------------------------------------------------- */
 .note-intro { max-width: 48ch; margin-bottom: var(--space-xl); }
 .note-intro .script-accent { font-size: 1.6rem; display: block; margin-bottom: var(--space-2xs); transform: rotate(-1.5deg); }
-.note-intro h2 { margin-bottom: 0.25em; font-style: italic; font-weight: 600; }
+.note-intro h2 { margin-bottom: 0.25em; font-style: normal; font-weight: 600; }
 
 .note-cards { display: grid; gap: var(--space-lg) var(--space-md); }
 @media (min-width: 720px) { .note-cards { grid-template-columns: repeat(2, 1fr); } }
@@ -732,7 +731,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .type-hero-grid { display: grid; gap: var(--space-lg); align-items: end; }
 @media (min-width: 860px) { .type-hero-grid { grid-template-columns: 1fr auto; } }
 .type-hero .chapter-num {
-  font-family: var(--font-serif); font-style: italic; font-weight: 400;
+  font-family: var(--font-sans); font-style: normal; font-weight: 700;
   font-size: clamp(3.4rem, 8vw, 5.6rem); line-height: 1; color: var(--butter);
   display: block; margin-bottom: -0.15em;
 }
@@ -765,7 +764,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .menu-item { padding-bottom: var(--space-sm); border-bottom: 1px dashed var(--color-line); }
 .menu-item-head { display: flex; justify-content: space-between; align-items: baseline; gap: var(--space-sm); }
 .menu-item-head h3 { font-size: 1.12rem; }
-.menu-item-price { font-family: var(--font-serif); font-style: italic; color: var(--color-accent-warm); white-space: nowrap; font-size: 1.02rem; }
+.menu-item-price { font-family: var(--font-sans); font-weight: 600; color: var(--color-accent-warm); white-space: nowrap; font-size: 1.02rem; }
 .menu-item p { color: var(--color-text-soft); font-size: 0.96rem; margin-top: 0.3em; }
 .menu-item .serves { display: block; font-size: 0.8rem; color: var(--olive-deep); margin-top: 0.3em; letter-spacing: 0.02em; }
 
@@ -778,7 +777,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .today-list li { display: flex; justify-content: space-between; gap: var(--space-md); padding-block: var(--space-sm); border-bottom: 1px solid var(--color-line); }
 .today-list h3 { font-size: 1.25rem; margin-bottom: 0.15em; }
 .today-list p { color: var(--color-text-soft); font-size: 0.92rem; }
-.today-list .item-price { font-family: var(--font-serif); font-style: italic; color: var(--color-accent-warm); white-space: nowrap; }
+.today-list .item-price { font-family: var(--font-sans); font-weight: 600; color: var(--color-accent-warm); white-space: nowrap; }
 
 /* -----------------------------------------------------------
    18. Forms
@@ -808,7 +807,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .site-footer a:hover { color: var(--butter); }
 .footer-grid { display: grid; gap: var(--space-lg); margin-bottom: var(--space-lg); }
 @media (min-width: 780px) { .footer-grid { grid-template-columns: 1.4fr 1fr 1fr 1fr; } }
-.footer-logo { font-family: var(--font-serif); font-style: normal; font-weight: 600; font-size: 1.3rem; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: var(--space-sm); color: var(--cream); }
+.footer-logo { font-family: var(--font-sans); font-style: normal; font-weight: 700; font-size: 1.2rem; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: var(--space-sm); color: var(--cream); }
 .heart-mark { color: var(--ruby-red); font-size: 0.65em; vertical-align: middle; display: inline-block; margin-left: 0.2em; transform: translateY(-0.05em); }
 .heart-mark.on-dark { color: #F28D90; }
 .footer-tagline { color: rgba(251,246,236,0.7); max-width: 32ch; }
@@ -834,7 +833,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   border-top: 1px solid var(--color-line);
 }
 .closing-note .btn { margin-top: var(--space-md); }
-.closing-note h2 { margin-bottom: 0.3em; font-style: italic; font-weight: 600; }
+.closing-note h2 { margin-bottom: 0.3em; font-style: normal; font-weight: 600; }
 
 /* -----------------------------------------------------------
    21. Page hero (interior pages, non-editorial variant)
