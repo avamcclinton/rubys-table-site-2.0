@@ -8,11 +8,12 @@
 
 /* -----------------------------------------------------------
    1. Fonts
-   Fraunces  — graceful editorial serif, headlines & logo
-   Jost      — clean geometric sans, body & nav
+   Piazzolla — warm editorial serif w/ elegant italic, headlines,
+               logo & body; bold italic carries display moments
+   Inter     — clean neutral grotesque, nav / buttons / UI labels
    Caveat    — handwritten accent, used very sparingly
 ----------------------------------------------------------- */
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Jost:wght@300;400;500;600;700&family=Caveat:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Piazzolla:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700;800&family=Caveat:wght@500;600&display=swap');
 
 /* -----------------------------------------------------------
    2. Design tokens
@@ -54,8 +55,8 @@
   --color-accent-coastal: var(--coastal-deep);
   --color-line:          rgba(74, 58, 44, 0.14);
 
-  --font-serif: 'Fraunces', 'Iowan Old Style', Georgia, serif;
-  --font-sans:  'Jost', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-serif: 'Piazzolla', 'Iowan Old Style', Georgia, serif;
+  --font-sans:  'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-script: 'Caveat', cursive;
 
   --space-3xs: 0.25rem;
@@ -292,9 +293,10 @@ section { padding-block: var(--space-2xl); }
   padding: 0.9em 1.85em;
   border-radius: 100px;
   font-family: var(--font-sans);
-  font-weight: 500;
-  font-size: 0.95rem;
-  letter-spacing: 0.02em;
+  font-weight: 700;
+  font-size: 0.86rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
   transition: transform var(--transition), box-shadow var(--transition), background var(--transition), color var(--transition), border-color var(--transition);
   white-space: nowrap;
 }
@@ -687,7 +689,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 ----------------------------------------------------------- */
 .note-intro { max-width: 48ch; margin-bottom: var(--space-xl); }
 .note-intro .script-accent { font-size: 1.6rem; display: block; margin-bottom: var(--space-2xs); transform: rotate(-1.5deg); }
-.note-intro h2 { margin-bottom: 0.25em; font-style: italic; font-weight: 400; }
+.note-intro h2 { margin-bottom: 0.25em; font-style: italic; font-weight: 600; }
 
 .note-cards { display: grid; gap: var(--space-lg) var(--space-md); }
 @media (min-width: 720px) { .note-cards { grid-template-columns: repeat(2, 1fr); } }
@@ -811,8 +813,12 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .heart-mark.on-dark { color: #F28D90; }
 .footer-tagline { color: rgba(251,246,236,0.7); max-width: 32ch; }
 .footer-col h4 { color: var(--butter); font-size: 0.8rem; margin-bottom: var(--space-sm); }
-.footer-col ul { display: flex; flex-direction: column; gap: 0.7em; }
-.footer-col a, .footer-col p { color: rgba(251,246,236,0.82); font-size: 0.94rem; }
+.footer-col ul { display: flex; flex-direction: column; gap: 0.85em; }
+.footer-col a {
+  color: rgba(251,246,236,0.85); font-size: 0.82rem; font-weight: 700;
+  letter-spacing: 0.05em; text-transform: uppercase;
+}
+.footer-col p { color: rgba(251,246,236,0.82); font-size: 0.94rem; }
 .footer-social { display: flex; gap: var(--space-sm); margin-top: var(--space-sm); }
 .footer-social a { width: 38px; height: 38px; border: 1px solid rgba(251,246,236,0.35); border-radius: 50%; display: grid; place-items: center; transition: background var(--transition), border-color var(--transition); }
 .footer-social a:hover { background: rgba(251,246,236,0.12); border-color: var(--cream); }
@@ -828,7 +834,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   border-top: 1px solid var(--color-line);
 }
 .closing-note .btn { margin-top: var(--space-md); }
-.closing-note h2 { margin-bottom: 0.3em; font-style: italic; font-weight: 400; }
+.closing-note h2 { margin-bottom: 0.3em; font-style: italic; font-weight: 600; }
 
 /* -----------------------------------------------------------
    21. Page hero (interior pages, non-editorial variant)
