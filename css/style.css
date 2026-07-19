@@ -382,6 +382,25 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .info-row p { color: var(--color-text-soft); max-width: 52ch; }
 
 /* -----------------------------------------------------------
+   11b. Delivery zones — an editorial note, not a pricing chart.
+   Two-column on desktop, stacks on mobile. A hairline rule
+   stands in for a table border; no numerals, no icons, no cards.
+----------------------------------------------------------- */
+.zone-list { display: grid; gap: var(--space-lg) var(--space-xl); }
+@media (min-width: 720px) { .zone-list { grid-template-columns: 1fr 1fr; } }
+.zone-row { padding-top: var(--space-md); border-top: 1px solid var(--color-line); }
+.zone-row h3 { font-weight: 500; margin-bottom: 0.35em; max-width: 26ch; }
+.zone-fee {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-accent-warm);
+}
+
+/* -----------------------------------------------------------
    12. Photography frames — plain, minimal radius, no arches,
    no organic blobs. The photo does the work.
 ----------------------------------------------------------- */
