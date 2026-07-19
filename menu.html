@@ -71,7 +71,7 @@
 
 <main id="main">
 
-  <section class="section-minimal">
+  <section class="section-minimal" style="padding-top: var(--space-md); padding-bottom: var(--space-2xs);">
     <div class="container">
       <p class="breadcrumb reveal"><a href="index.html">Home</a> / Menu</p>
       <p class="eyebrow reveal">Family-Style, Made to Share</p>
@@ -80,22 +80,20 @@
     </div>
   </section>
 
-  <section class="section-tight">
+  <section class="section-tight section-flush-top">
     <div class="container">
 
       <nav class="menu-jump reveal" aria-label="Jump to menu category">
         <a href="#pastas">Pastas</a>
         <a href="#salads">Salads</a>
-        <a href="#desserts">Desserts</a>
+        <a href="#desserts">Dessert</a>
       </nav>
 
       <!-- PASTAS -->
       <div class="menu-category" id="pastas">
         <div class="menu-category-head reveal">
-          <div>
-            <p class="eyebrow">Pastas</p>
-            <h2>Pastas</h2>
-          </div>
+          <p class="eyebrow">Pastas</p>
+          <h2>Pastas</h2>
           <p class="price-tiers">$65 <span style="opacity:.6;">(serves 4&ndash;6)</span> &nbsp;&middot;&nbsp; $120 <span style="opacity:.6;">(serves 8&ndash;12)</span></p>
         </div>
         <div class="menu-items">
@@ -130,21 +128,11 @@
         </div>
       </div>
 
-      <!-- PHOTO BREAK -->
-      <div class="offset-duo reveal" style="margin-block: var(--space-xl);">
-        <div class="photo-frame">
-          <img src="images/chicken-pasta.png" alt="A family-style pasta dish, ready to serve" width="1122" height="1402" loading="lazy">
-        </div>
-        <p class="pull-quote" style="margin:0;">Every dish is prepared fresh to order &mdash; nothing sits, nothing is mass-produced.</p>
-      </div>
-
       <!-- SALADS -->
       <div class="menu-category" id="salads">
         <div class="menu-category-head reveal">
-          <div>
-            <p class="eyebrow">Salads</p>
-            <h2>Salads</h2>
-          </div>
+          <p class="eyebrow">Salads</p>
+          <h2>Salads</h2>
           <p class="price-tiers">$30 <span style="opacity:.6;">(serves 4&ndash;6)</span> &nbsp;&middot;&nbsp; $55 <span style="opacity:.6;">(serves 8&ndash;12)</span></p>
         </div>
         <div class="menu-items">
@@ -163,26 +151,20 @@
         </div>
       </div>
 
-      <!-- DESSERTS -->
-      <div class="menu-category" id="desserts">
-        <div class="menu-category-head reveal">
+      <!-- DESSERT (featured ending) -->
+      <div class="menu-category menu-category-compact" id="desserts">
+        <div class="offset-duo reveal">
+          <div class="photo-frame tall">
+            <img src="images/photos-gallery/cookie-cooling-rack.png" alt="A warm chocolate chip cookie, fresh off the tray, finished with flaky sea salt" width="1086" height="1448" loading="lazy">
+          </div>
           <div>
-            <p class="eyebrow">Desserts</p>
-            <h2>Desserts</h2>
+            <p class="eyebrow">Dessert</p>
+            <h2 class="dessert-heading">Ruby&rsquo;s Brown Butter Chocolate Chip Cookies</h2>
+            <p class="lede mt-sm">Freshly baked brown butter chocolate chip cookies made from Ruby&rsquo;s signature recipe.</p>
+            <p class="price-tiers">$22 <span style="opacity:.6;">per dozen</span></p>
+            <p class="dessert-footnote">Please include any allergies or dietary restrictions when submitting your inquiry &mdash; Ruby is happy to accommodate whenever possible.</p>
           </div>
         </div>
-        <div class="menu-items" style="grid-template-columns: 1fr; max-width: 480px;">
-          <div class="menu-item reveal">
-            <div class="menu-item-head"><h3>Ruby&rsquo;s Brown Butter Chocolate Chip Cookies</h3><span class="menu-item-price">$22</span></div>
-            <p>Freshly baked brown butter chocolate chip cookies made from Ruby&rsquo;s signature recipe.</p>
-            <span class="serves">Per dozen</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="menu-note reveal">
-        <h3>Dietary Accommodations</h3>
-        <p>Please let Ruby know about any allergies or dietary restrictions when submitting your inquiry. We&rsquo;re happy to accommodate whenever possible.</p>
       </div>
 
     </div>
@@ -191,9 +173,10 @@
   <!-- QUIET CLOSING -->
   <section class="closing-note">
     <div class="container reveal">
-      <h2>Ready to order?</h2>
-      <p class="lede mx-auto">Text 828.772.4255, or send an inquiry for larger events. We ask for at least 48 hours' notice.</p>
-      <a href="contact.html" class="btn btn-outline">Request Catering</a>
+      <h2>Ready to Gather Around the Table?</h2>
+      <p class="lede mx-auto">Let&rsquo;s start planning your next gathering &mdash; from an intimate dinner to a full celebration.</p>
+      <a href="contact.html" class="btn btn-primary">Request Catering</a>
+      <p class="mt-md" style="color:var(--color-text-soft); font-size:0.9rem;">Questions? <a href="sms:+18287724255" style="text-decoration:underline;">Call or text Ruby</a> anytime.</p>
     </div>
   </section>
 

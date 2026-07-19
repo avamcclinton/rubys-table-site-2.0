@@ -515,22 +515,41 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 
 .menu-category { padding-block: var(--space-lg); border-top: 1px solid var(--color-line); scroll-margin-top: 130px; }
 .menu-category:first-of-type { border-top: none; padding-top: 0; }
-.menu-category-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: var(--space-2xs); margin-bottom: var(--space-md); }
-.menu-category-head .price-tiers { font-family: var(--font-sans); font-size: 0.92rem; color: var(--color-text-soft); }
+/* Dessert reads as a featured single item, not a full category —
+   the same divider, a smaller footprint. */
+.menu-category.menu-category-compact { padding-block: var(--space-md); }
 
-.menu-items { display: grid; gap: var(--space-md); }
+/* Price now reads as a subtitle directly under the heading,
+   instead of floating right-aligned on its own axis. */
+.menu-category-head { margin-bottom: var(--space-md); }
+.price-tiers { font-family: var(--font-sans); font-size: 0.92rem; color: var(--color-text-soft); margin-top: 0.35em; }
+
+.menu-items { display: grid; gap: var(--space-sm); }
 @media (min-width: 720px) { .menu-items { grid-template-columns: repeat(2, 1fr); } }
 
-.menu-item { padding-bottom: var(--space-sm); border-bottom: 1px solid var(--color-line); }
+.menu-item { padding-bottom: var(--space-xs); border-bottom: 1px solid var(--color-line); }
 .menu-item-head { display: flex; justify-content: space-between; align-items: baseline; gap: var(--space-sm); }
 .menu-item-head h3 { font-size: 1.15rem; }
 .menu-item-price { font-family: var(--font-sans); font-weight: 500; color: var(--color-accent-warm); white-space: nowrap; font-size: 0.98rem; }
 .menu-item p { color: var(--color-text-soft); font-size: 0.96rem; margin-top: 0.3em; }
 .menu-item .serves { display: block; font-size: 0.8rem; color: var(--olive-deep); margin-top: 0.3em; }
 
-.menu-note { margin-top: var(--space-xl); }
+.menu-note { margin-top: var(--space-md); }
 .menu-note h3 { margin-bottom: 0.35em; }
 .menu-note p { color: var(--color-text-soft); }
+
+/* Dessert's heading is deliberately smaller than a full category
+   title — it's a featured single item, not another chapter. */
+.dessert-heading { font-size: clamp(1.4rem, 2.2vw, 1.8rem); }
+
+/* A true footnote — quiet, small, no label of its own. */
+.dessert-footnote {
+  margin-top: var(--space-sm);
+  font-size: 0.82rem;
+  font-style: italic;
+  color: var(--color-text-soft);
+  max-width: 48ch;
+}
 
 /* -----------------------------------------------------------
    16. "Tonight's table" list (home menu teaser)
