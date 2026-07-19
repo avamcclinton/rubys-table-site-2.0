@@ -382,22 +382,60 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .info-row p { color: var(--color-text-soft); max-width: 52ch; }
 
 /* -----------------------------------------------------------
-   11b. Delivery zones — an editorial note, not a pricing chart.
-   Two-column on desktop, stacks on mobile. A hairline rule
-   stands in for a table border; no numerals, no icons, no cards.
+   11b. Delivery page — Ordering Information + Delivery Areas.
+   Both blocks share one editorial two-column grid device (a
+   small photo + copy header, then a hairline-ruled grid) so the
+   page reads as one intentional whole rather than a stack of
+   equally-weighted sections. No cards, icons, or shadows.
 ----------------------------------------------------------- */
-.zone-list { display: grid; gap: var(--space-lg) var(--space-xl); }
-@media (min-width: 720px) { .zone-list { grid-template-columns: 1fr 1fr; } }
-.zone-row { padding-top: var(--space-md); border-top: 1px solid var(--color-line); }
-.zone-row h3 { font-weight: 500; margin-bottom: 0.35em; max-width: 26ch; }
-.zone-fee {
-  display: inline-block;
-  font-family: var(--font-sans);
-  font-size: 0.8rem;
+.page-hero-compact { padding-top: var(--space-md); padding-bottom: var(--space-2xs); }
+
+/* Lets the first content section after a compact hero sit close
+   beneath it, instead of stacking a second full section-tight
+   top padding on top of the hero's own bottom padding. */
+.section-tight.section-flush-top { padding-top: var(--space-md); }
+
+/* One narrow reading column for the price list — prose, photo,
+   and list don't all need the same width; this one just needs
+   to be easy to scan. */
+.content-column { max-width: 700px; }
+
+/* A single quiet line of essentials — no headings, no boxes,
+   just the facts a reader actually needs, at a glance. */
+.order-essentials { margin-top: 0.5em; color: var(--color-text-soft); font-size: 0.9rem; }
+
+/* Delivery zones — a quiet editorial list, not a pricing chart. */
+.zone-list { border-top: 1px solid var(--color-line); }
+.zone-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-md);
+  padding-block: 1.05rem;
+  border-bottom: 1px solid var(--color-line);
+}
+.zone-name {
+  font-family: var(--font-serif);
   font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  font-size: clamp(1.15rem, 1.6vw, 1.35rem);
+  color: var(--color-text);
+  max-width: 34ch;
+}
+.zone-fee {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
   color: var(--color-accent-warm);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.closing-note.closing-note-tight { padding-top: var(--space-md); }
+
+@media (max-width: 480px) {
+  .zone-row { gap: var(--space-sm); }
+  .zone-fee { font-size: 0.88rem; }
 }
 
 /* -----------------------------------------------------------
@@ -490,7 +528,9 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .menu-item p { color: var(--color-text-soft); font-size: 0.96rem; margin-top: 0.3em; }
 .menu-item .serves { display: block; font-size: 0.8rem; color: var(--olive-deep); margin-top: 0.3em; }
 
-.menu-note { margin-top: var(--space-xl); padding: var(--space-md); background: var(--cream-deep); border-left: 2px solid var(--color-accent); }
+.menu-note { margin-top: var(--space-xl); }
+.menu-note h3 { margin-bottom: 0.35em; }
+.menu-note p { color: var(--color-text-soft); }
 
 /* -----------------------------------------------------------
    16. "Tonight's table" list (home menu teaser)
@@ -579,6 +619,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .text-center { text-align: center; }
 .mt-lg { margin-top: var(--space-lg); }
 .mt-md { margin-top: var(--space-md); }
+.mt-sm { margin-top: var(--space-sm); }
 .mx-auto { margin-inline: auto; }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
 .placeholder-note { font-size: 0.84rem; color: var(--color-text-soft); border: 1px dashed var(--color-line); padding: var(--space-sm); margin-top: var(--space-sm); }

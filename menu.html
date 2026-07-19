@@ -28,17 +28,18 @@
         {"@type": "MenuItem", "name": "Lemon Shallot Pasta", "description": "Boursin cheese, lemon, shallot, EVOO."},
         {"@type": "MenuItem", "name": "Creamy Mushroom & Spinach Orzo", "description": "Heavy cream, mushroom, spinach, parmesan, cherry tomatoes."},
         {"@type": "MenuItem", "name": "Baked Feta Pasta", "description": "Feta cheese, cherry tomatoes, EVOO."},
-        {"@type": "MenuItem", "name": "Radiatori Vodka", "description": "Crème fraîche, tomato paste, parmesan, EVOO."}
+        {"@type": "MenuItem", "name": "Ruby's Vodka Radiatori", "description": "Tomato, vodka, shallots, garlic, crème fraîche, Parmesan, fresh basil & a whipped ricotta topper."},
+        {"@type": "MenuItem", "name": "Roasted Cherry Tomato Pasta", "description": "Slow-roasted cherry tomatoes, shallots, garlic, butter, Parmesan & fresh basil."},
+        {"@type": "MenuItem", "name": "Garden Pesto Pasta", "description": "House-made kale & basil pesto, roasted zucchini, sweet peas, Parmesan & lemon."},
+        {"@type": "MenuItem", "name": "Creamy Lemon Herb Pasta", "description": "Garlic & Fine Herbs Boursin, fresh lemon, garlic, Parmesan & parsley."}
     ]},
     { "@type": "MenuSection", "name": "Salads", "hasMenuItem": [
-        {"@type": "MenuItem", "name": "Arugula Salad", "description": "Arugula, cherry tomatoes, shaved parmesan, toasted pine nuts, house maple vinaigrette."},
-        {"@type": "MenuItem", "name": "Summer Salad", "description": "Mixed greens, strawberries, candied pecans, feta cheese, house maple vinaigrette."},
-        {"@type": "MenuItem", "name": "Kale Caesar", "description": "Chopped kale, parmesan crisps, lemon, house caesar dressing."}
+        {"@type": "MenuItem", "name": "Arugula Salad", "description": "Arugula, cherry tomatoes, shaved Parmesan, toasted pine nuts, fresh lemon & house maple vinaigrette."},
+        {"@type": "MenuItem", "name": "Summer Salad", "description": "Mixed greens, strawberries, candied pecans, feta & house maple vinaigrette."},
+        {"@type": "MenuItem", "name": "Kale Caesar", "description": "Chopped kale, Parmesan crisps, fresh lemon & house Caesar dressing."}
     ]},
     { "@type": "MenuSection", "name": "Desserts", "hasMenuItem": [
-        {"@type": "MenuItem", "name": "Caramel Cake", "description": "Whole cake, serves approximately 10–12.", "offers": {"@type": "Offer", "price": "50", "priceCurrency": "USD"}},
-        {"@type": "MenuItem", "name": "Chocolate Chip Cookies", "offers": {"@type": "Offer", "price": "22", "priceCurrency": "USD", "description": "Per dozen"}},
-        {"@type": "MenuItem", "name": "Berry Crumble", "description": "Serves approximately 10–12.", "offers": {"@type": "Offer", "price": "50", "priceCurrency": "USD"}}
+        {"@type": "MenuItem", "name": "Ruby's Brown Butter Chocolate Chip Cookies", "description": "Freshly baked brown butter chocolate chip cookies made from Ruby's signature recipe.", "offers": {"@type": "Offer", "price": "22", "priceCurrency": "USD", "description": "Per dozen"}}
     ]}
   ]
 }
@@ -111,8 +112,20 @@
             <p>Feta cheese, cherry tomatoes, EVOO.</p>
           </div>
           <div class="menu-item reveal reveal-delay-3">
-            <div class="menu-item-head"><h3>Radiatori Vodka</h3></div>
-            <p>Crème fraîche, tomato paste, parmesan, EVOO.</p>
+            <div class="menu-item-head"><h3>Ruby&rsquo;s Vodka Radiatori</h3></div>
+            <p>Tomato, vodka, shallots, garlic, cr&egrave;me fra&icirc;che, Parmesan, fresh basil &amp; a whipped ricotta topper.</p>
+          </div>
+          <div class="menu-item reveal">
+            <div class="menu-item-head"><h3>Roasted Cherry Tomato Pasta</h3></div>
+            <p>Slow-roasted cherry tomatoes, shallots, garlic, butter, Parmesan &amp; fresh basil.</p>
+          </div>
+          <div class="menu-item reveal reveal-delay-1">
+            <div class="menu-item-head"><h3>Garden Pesto Pasta</h3></div>
+            <p>House-made kale &amp; basil pesto, roasted zucchini, sweet peas, Parmesan &amp; lemon.</p>
+          </div>
+          <div class="menu-item reveal reveal-delay-2">
+            <div class="menu-item-head"><h3>Creamy Lemon Herb Pasta</h3></div>
+            <p>Garlic &amp; Fine Herbs Boursin, fresh lemon, garlic, Parmesan &amp; parsley.</p>
           </div>
         </div>
       </div>
@@ -137,15 +150,15 @@
         <div class="menu-items">
           <div class="menu-item reveal">
             <div class="menu-item-head"><h3>Arugula Salad</h3></div>
-            <p>Arugula, cherry tomatoes, shaved parmesan, toasted pine nuts, house maple vinaigrette.</p>
+            <p>Arugula, cherry tomatoes, shaved Parmesan, toasted pine nuts, fresh lemon &amp; house maple vinaigrette.</p>
           </div>
           <div class="menu-item reveal reveal-delay-1">
             <div class="menu-item-head"><h3>Summer Salad</h3></div>
-            <p>Mixed greens, strawberries, candied pecans, feta cheese, house maple vinaigrette.</p>
+            <p>Mixed greens, strawberries, candied pecans, feta &amp; house maple vinaigrette.</p>
           </div>
           <div class="menu-item reveal reveal-delay-2">
             <div class="menu-item-head"><h3>Kale Caesar</h3></div>
-            <p>Chopped kale, parmesan crisps, lemon, house caesar dressing.</p>
+            <p>Chopped kale, Parmesan crisps, fresh lemon &amp; house Caesar dressing.</p>
           </div>
         </div>
       </div>
@@ -158,25 +171,18 @@
             <h2>Desserts</h2>
           </div>
         </div>
-        <div class="menu-items">
+        <div class="menu-items" style="grid-template-columns: 1fr; max-width: 480px;">
           <div class="menu-item reveal">
-            <div class="menu-item-head"><h3>Caramel Cake</h3><span class="menu-item-price">$50</span></div>
-            <p>Whole cake.</p>
-            <span class="serves">Serves approximately 10&ndash;12</span>
-          </div>
-          <div class="menu-item reveal reveal-delay-1">
-            <div class="menu-item-head"><h3>Chocolate Chip Cookies</h3><span class="menu-item-price">$22</span></div>
-            <p>Per dozen.</p>
-          </div>
-          <div class="menu-item reveal reveal-delay-2">
-            <div class="menu-item-head"><h3>Berry Crumble</h3><span class="menu-item-price">$50</span></div>
-            <span class="serves">Serves approximately 10&ndash;12</span>
+            <div class="menu-item-head"><h3>Ruby&rsquo;s Brown Butter Chocolate Chip Cookies</h3><span class="menu-item-price">$22</span></div>
+            <p>Freshly baked brown butter chocolate chip cookies made from Ruby&rsquo;s signature recipe.</p>
+            <span class="serves">Per dozen</span>
           </div>
         </div>
       </div>
 
       <div class="menu-note reveal">
-        <p><strong>Good to know:</strong> our dishes contain nuts and dairy. Have a food allergy or dietary need? Just ask when you order &mdash; we're happy to help where we can.</p>
+        <h3>Dietary Accommodations</h3>
+        <p>Please let Ruby know about any allergies or dietary restrictions when submitting your inquiry. We&rsquo;re happy to accommodate whenever possible.</p>
       </div>
 
     </div>
