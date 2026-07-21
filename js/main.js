@@ -26,6 +26,18 @@
     });
   }
 
+  /* ---- Hero video (Home page): slow, cinematic playback; respects reduced-motion ---- */
+  var heroVideo = document.getElementById('hero-video');
+  if (heroVideo) {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      heroVideo.pause();
+      heroVideo.removeAttribute('autoplay');
+      heroVideo.removeAttribute('loop');
+    } else {
+      heroVideo.playbackRate = 0.75;
+    }
+  }
+
   /* ---- Scroll reveal animation ---- */
   var revealEls = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window && revealEls.length) {

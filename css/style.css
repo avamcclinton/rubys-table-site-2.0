@@ -317,28 +317,32 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   .main-nav a { font-size: 1.3rem; }
 }
 
+
 /* -----------------------------------------------------------
-   8. Editorial hero — the photograph is the point. A light,
-   bottom-only veil for legibility; everything above it stays
-   untouched so the photo actually reads as a photo.
+   8. Hero video — full-bleed, slow-moving footage beneath a
+   warm cream veil. The overlay exists purely so the type stays
+   easy to read; it should never read as a "dark hero" trick —
+   the palette stays light, calm, and true to the rest of the
+   page. Content sits left, generous padding, plenty of air.
 ----------------------------------------------------------- */
-.hero-editorial {
-  position: relative; padding: 0; min-height: 82vh;
-  display: flex; align-items: flex-end; overflow: hidden;
+.hero-video {
+  position: relative; padding: 0; min-height: 90vh;
+  display: flex; align-items: center; overflow: hidden;
 }
-.hero-editorial .hero-editorial-media { position: absolute; inset: 0; }
-.hero-editorial .hero-editorial-media img { width: 100%; height: 100%; object-fit: cover; }
-.hero-editorial .hero-editorial-media::after {
+.hero-video .hero-video-media { position: absolute; inset: 0; background: var(--cream); }
+.hero-video .hero-video-media video { width: 100%; height: 100%; object-fit: cover; }
+.hero-video .hero-video-media::after {
   content: ''; position: absolute; inset: 0;
-  /* Verified against the actual photo's sampled colors: even the darkest
-     stop here clears 4.5:1 for the text sitting on it, with margin — this
-     is a fraction of the darkness a typical hero scrim uses. */
-  background: linear-gradient(0deg, rgba(20,15,12,0.4) 0%, rgba(20,15,12,0.14) 42%, rgba(20,15,12,0) 72%);
+  /* Warm cream veil, ~50% on average. Slightly stronger over the
+     left third (where the text sits) than the requested 45–55%,
+     verified against the video's own darkest sampled frame so
+     small text stays AA-legible no matter what the loop shows;
+     it settles back into the 45–55% range across the rest of the
+     frame, where the pasta's movement should read clearly. */
+  background: linear-gradient(90deg, rgba(251,246,236,0.68) 0%, rgba(251,246,236,0.52) 45%, rgba(251,246,236,0.48) 100%);
 }
-.hero-editorial-content { position: relative; z-index: 2; color: var(--soft-white); padding: var(--space-lg) var(--space-sm); max-width: 640px; }
-@media (min-width: 640px) { .hero-editorial-content { padding: var(--space-xl) var(--space-md); } }
-.hero-editorial-content h1 { color: var(--soft-white); }
-.hero-editorial-content .lede { color: rgba(255,253,248,0.92); }
+.hero-video-content { position: relative; z-index: 2; padding: var(--space-xl) var(--space-sm); max-width: 620px; }
+@media (min-width: 640px) { .hero-video-content { padding: var(--space-2xl) var(--space-lg); } }
 
 /* -----------------------------------------------------------
    9. Split-screen — one consistent asymmetric two-up, used the
@@ -351,8 +355,9 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   .split-screen.split-wide-left { grid-template-columns: 1.15fr 1fr; }
   .split-screen.split-wide-right { grid-template-columns: 1fr 1.15fr; }
 }
-.split-screen .split-media { position: relative; min-height: 38vh; }
-.split-screen .split-media img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
+.split-screen .split-media { position: relative; min-height: 38vh; background: var(--espresso); }
+.split-screen .split-media img,
+.split-screen .split-media video { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
 .split-screen .split-copy { display: flex; flex-direction: column; justify-content: center; padding: var(--space-xl) var(--space-sm); }
 @media (min-width: 640px) { .split-screen .split-copy { padding: var(--space-2xl) var(--space-lg); } }
 .split-screen .split-copy.on-cream { background: var(--cream); }

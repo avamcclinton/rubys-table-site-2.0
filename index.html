@@ -62,16 +62,19 @@
 
 <main id="main">
 
-  <!-- HERO — the photograph is the page. Light veil, one line of type, one button. -->
-  <section class="hero-editorial">
-    <div class="hero-editorial-media">
-      <img src="images/ravenel.jpeg" alt="The Arthur Ravenel Jr. Bridge over Charleston Harbor at sunset" width="1921" height="819" loading="eager">
+  <!-- HERO — full-bleed, slow-moving footage beneath a warm cream veil. -->
+  <section class="hero-video">
+    <div class="hero-video-media">
+      <video id="hero-video" autoplay muted loop playsinline preload="auto" poster="images/pasta-hero-poster.jpg" aria-hidden="true">
+        <source src="images/pasta-hero.webm" type="video/webm">
+        <source src="images/pasta-hero.mp4" type="video/mp4">
+      </video>
     </div>
-    <div class="hero-editorial-content">
-      <h1>Food made for gathering.</h1>
-      <p class="lede mt-md">Family-style meals, made to share — delivered to your door in Charleston, SC.</p>
-      <div class="cluster mt-md">
-        <a href="menu.html" class="btn btn-primary">View the Menu</a>
+    <div class="hero-video-content">
+      <h1 class="reveal">Pasta, Made by Hand.</h1>
+      <p class="lede mt-md reveal reveal-delay-1">Family-style meals, made to share &mdash; delivered to your door in Charleston, SC.</p>
+      <div class="cluster mt-md reveal reveal-delay-2">
+        <a href="contact.html" class="btn btn-primary">Request Catering</a>
       </div>
     </div>
   </section>
