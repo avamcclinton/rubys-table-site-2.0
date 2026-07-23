@@ -9,11 +9,10 @@
 
 /* -----------------------------------------------------------
    1. Fonts
-   Cormorant Garamond — elegant, airy serif; headings & logo only
-   Inter               — clean sans; nav, body, buttons, labels
-   Caveat              — handwritten signature, used once
+   Inter   — clean sans; carries headings, body, nav, buttons, labels
+   Caveat  — handwritten signature, used once
 ----------------------------------------------------------- */
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600;700&family=Caveat:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Caveat:wght@500&display=swap');
 
 /* -----------------------------------------------------------
    2. Design tokens
@@ -52,7 +51,7 @@
   --color-accent-coastal: var(--coastal-deep);
   --color-line:          rgba(74, 58, 44, 0.12);
 
-  --font-serif: 'Cormorant Garamond', 'Iowan Old Style', Georgia, serif;
+  --font-serif: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; /* headings now share the sans stack — kept as a separate token so heading-only tweaks stay easy */
   --font-sans:  'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-script: 'Caveat', cursive;
 
@@ -538,6 +537,31 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .menu-item { padding-bottom: var(--space-xs); border-bottom: 1px solid var(--color-line); }
 .menu-item-head { display: flex; justify-content: space-between; align-items: baseline; gap: var(--space-sm); }
 .menu-item-head h3 { font-size: 1.15rem; }
+
+/* A photo accent for dishes with a photo — a proper banner image
+   above the name, not a tiny icon, so the dish actually reads.
+   Items without a photo (e.g. Salads) stay plain text below.
+
+   Each source photo was shot from a slightly different distance,
+   so a flat object-fit:cover leaves the dish a different size in
+   every card. --photo-zoom lets each card dial in its own scale
+   (1 = shown as-is; >1 crops in tighter; <1 shows more of the
+   original frame, revealing --photo-vpos to re-aim the crop
+   vertically) so every dish reads at the same visual distance.
+   Ruby's Vodka Radiatori is the reference (zoom: 1, untouched). */
+.menu-item-photo {
+  aspect-ratio: 4/3; border-radius: var(--radius-sm); overflow: hidden;
+  margin-bottom: var(--space-xs); background: var(--linen);
+  position: relative;
+}
+.menu-item-photo img {
+  position: absolute; top: 0; left: 50%; height: 100%;
+  width: calc(100% * var(--photo-zoom, 1));
+  max-width: none;
+  object-fit: cover;
+  object-position: center var(--photo-vpos, 50%);
+  transform: translateX(-50%);
+}
 .menu-item-price { font-family: var(--font-sans); font-weight: 500; color: var(--color-accent-warm); white-space: nowrap; font-size: 0.98rem; }
 .menu-item p { color: var(--color-text-soft); font-size: 0.96rem; margin-top: 0.3em; }
 .menu-item .serves { display: block; font-size: 0.8rem; color: var(--olive-deep); margin-top: 0.3em; }
