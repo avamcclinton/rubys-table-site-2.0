@@ -31,6 +31,9 @@
   --olive-deep:      #5F6640;
   --rose:      #F3C2D4;
   --rose-deep: #B83A64;
+  --rose-light: #E4AABD; /* lighter pastel — kept for reference, no longer in active use */
+  --dusty-blue:      #9BB3D6; /* button fill — pairs with espresso text, not white */
+  --dusty-blue-deep: #446CA6; /* text/line uses — eyebrows, prices, focus states */
   --coastal-soft:      #DCE6E4;
   --coastal-deep:      #4E6367;
   --espresso:        #4A3A2C;
@@ -45,7 +48,7 @@
   --color-text-soft:     var(--espresso-soft);
   --color-accent:        var(--olive);
   --color-accent-deep:   var(--olive-deep);
-  --color-accent-warm:   var(--rose-deep);
+  --color-accent-warm:   var(--dusty-blue-deep);
   --color-accent-coastal: var(--coastal-deep);
   --color-line:          rgba(74, 58, 44, 0.12);
 
@@ -243,8 +246,8 @@ section { padding-block: var(--space-2xl); }
 }
 .btn:hover { opacity: 0.82; }
 
-.btn-primary { background: var(--rose-deep); color: var(--soft-white); }
-.btn-primary:hover { background: var(--espresso); opacity: 1; }
+.btn-primary { background: var(--dusty-blue); color: var(--espresso); }
+.btn-primary:hover { background: var(--espresso); color: var(--soft-white); opacity: 1; }
 
 .btn-outline { background: transparent; color: var(--color-text); border: 1px solid var(--color-text); }
 .btn-outline:hover { background: var(--color-text); color: var(--color-bg); opacity: 1; }
@@ -448,7 +451,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
    no organic blobs. The photo does the work.
 ----------------------------------------------------------- */
 .photo-frame { position: relative; overflow: hidden; aspect-ratio: 4/5; background: var(--linen); border-radius: var(--radius-sm); }
-.photo-frame img { width: 100%; height: 100%; object-fit: cover; }
+.photo-frame img, .photo-frame video { width: 100%; height: 100%; object-fit: cover; }
 .photo-frame.square { aspect-ratio: 1/1; }
 .photo-frame.wide { aspect-ratio: 16/10; }
 .photo-frame.tall { aspect-ratio: 3/4; }
@@ -579,12 +582,12 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   background: var(--soft-white); transition: border-color var(--transition), box-shadow var(--transition);
 }
 .field input:focus, .field select:focus, .field textarea:focus {
-  outline: none; border-color: var(--color-accent-warm); box-shadow: 0 0 0 3px rgba(184, 58, 100, 0.10);
+  outline: none; border-color: var(--color-accent-warm); box-shadow: 0 0 0 3px rgba(68, 108, 166, 0.10);
 }
 .field textarea { resize: vertical; min-height: 130px; }
 .form-status { margin-top: var(--space-sm); font-size: 0.94rem; }
 .form-status[data-state="success"] { color: var(--olive-deep); }
-.form-status[data-state="error"] { color: var(--rose-deep); }
+.form-status[data-state="error"] { color: var(--dusty-blue-deep); }
 
 /* -----------------------------------------------------------
    18. Footer
@@ -602,6 +605,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .footer-col h4 { color: var(--butter); font-size: 0.78rem; margin-bottom: var(--space-sm); }
 .footer-col ul { display: flex; flex-direction: column; gap: 0.75em; }
 .footer-col a { color: rgba(251,246,236,0.82); font-size: 0.88rem; }
+.footer-col a.footer-link-icon { display: inline-flex; align-items: center; gap: 0.55em; }
+.footer-col a.footer-link-icon svg { width: 14px; height: 14px; flex-shrink: 0; }
 .footer-col p { color: rgba(251,246,236,0.82); font-size: 0.94rem; }
 .footer-social { display: flex; gap: var(--space-sm); margin-top: var(--space-sm); }
 .footer-social a { width: 36px; height: 36px; border: 1px solid rgba(251,246,236,0.3); border-radius: 50%; display: grid; place-items: center; transition: background var(--transition), border-color var(--transition); }

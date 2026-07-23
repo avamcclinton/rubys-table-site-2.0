@@ -26,17 +26,19 @@
     });
   }
 
-  /* ---- Hero video (Home page): slow, cinematic playback; respects reduced-motion ---- */
-  var heroVideo = document.getElementById('hero-video');
-  if (heroVideo) {
+  /* ---- Ambient looping videos (hero + inline photo-frame loops):
+     slow, cinematic playback; respects reduced-motion ---- */
+  ['hero-video', 'contact-loop-video'].forEach(function (id) {
+    var vid = document.getElementById(id);
+    if (!vid) { return; }
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      heroVideo.pause();
-      heroVideo.removeAttribute('autoplay');
-      heroVideo.removeAttribute('loop');
+      vid.pause();
+      vid.removeAttribute('autoplay');
+      vid.removeAttribute('loop');
     } else {
-      heroVideo.playbackRate = 0.75;
+      vid.playbackRate = 0.75;
     }
-  }
+  });
 
   /* ---- Scroll reveal animation ---- */
   var revealEls = document.querySelectorAll('.reveal');
